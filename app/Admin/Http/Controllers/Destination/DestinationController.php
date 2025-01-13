@@ -32,29 +32,29 @@ class DestinationController extends Controller
             'active' => 'Đang hoạt động',
             'inactive' => 'Ngưng hoạt động',
         ];
-        return view('admin.module.create', compact('status'));
+        return view('admin.destination.create', compact('status'));
     }
 
-    public function store(ModuleRequest $request)
+    public function store(DestinationRequest $request)
     {
         $this->service->store($request);
-        return redirect()->route('admin.module.index')->with('success', 'Thêm module mới thành công');
+        return redirect()->route('admin.destination.index')->with('success', 'Thêm điểm đến mới thành công');
     }
 
     public function edit(int $id)
     {
         $status = [
-            '1' => 'Chưa hoàn thành',
-            '2' => 'Đã hoàn thành',
+            'active' => 'Đang hoạt động',
+            'inactive' => 'Ngưng hoạt động',
         ];
-        $module = $this->repository->findOrFail($id);
-        return view('admin.module.edit', compact('module', 'status'));
+        $destination = $this->repository->findOrFail($id);
+        return view('admin.destination.edit', compact('destination', 'status'));
     }
 
-    public function update(ModuleRequest $request)
+    public function update(DestinationRequest $request)
     {
         $this->service->update($request);
-        return redirect()->route('admin.module.index')->with('success', 'Cập nhật module thành công');
+        return redirect()->route('admin.destination.index')->with('success', 'Cập nhật điểm đến thành công');
     }
 
     public function delete(int $id)
