@@ -44,6 +44,27 @@ return [
         ]
     ],
     [
+        'active' => ['admin.slider.*'],
+        'show' => ['admin.slider.*'],
+        'title' => 'Quản lý slider',
+        'icon' => 'ti ti-photo fs-2',
+        'permission' => ['viewSlider', 'createSlider', 'editSlider', 'deleteSlider'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.slider.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createSlider'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.slider.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewSlider'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.admin.*'],
         'show' => ['admin.admin.*'],
         'title' => 'Quản trị viên',

@@ -23,7 +23,7 @@ class SliderRequest extends BaseRequest
             'name' => 'required',
             'desc' => 'nullable',
             'status' => 'required',
-            'key' => 'required|unique:sliders,key',
+            'key' => 'required|unique:sliders,key,' . $this->id,
         ];
     }
 
