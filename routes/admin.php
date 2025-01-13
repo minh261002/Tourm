@@ -61,7 +61,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
             });
 
             Route::middleware(['permission:editPermission'])->group(function () {
-                Route::put('/{id}', [PermissionController::class, 'update'])->name('update');
+                Route::put('/update', [PermissionController::class, 'update'])->name('update');
             });
 
             Route::middleware(['permission:deletePermission'])->group(function () {
@@ -82,7 +82,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
             });
 
             Route::middleware(['permission:editRole'])->group(function () {
-                Route::put('/{id}', [RoleController::class, 'update'])->name('update');
+                Route::put('/update', [RoleController::class, 'update'])->name('update');
             });
 
             Route::middleware(['permission:deleteRole'])->group(function () {

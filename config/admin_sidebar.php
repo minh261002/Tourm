@@ -2,6 +2,48 @@
 
 return [
     [
+        'active' => ['admin.post-catalogue.*'],
+        'show' => ['admin.post-catalogue.*'],
+        'title' => 'Quản lý chuyên mục',
+        'icon' => 'ti ti-book fs-2',
+        'permission' => ['viewPostCatalogue', 'createPostCatalogue', 'editPostCatalogue', 'deletePostCatalogue'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.post_catalogue.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createPostCatalogue'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.post_catalogue.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewPostCatalogue'
+            ]
+        ]
+    ],
+    [
+        'active' => ['admin.post.*'],
+        'show' => ['admin.post.*'],
+        'title' => 'Quản lý bài viết',
+        'icon' => 'ti ti-inbox fs-2',
+        'permission' => ['viewPost', 'createPost', 'editPost', 'deletePost'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.post.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createPost'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.post.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewPost'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.admin.*'],
         'show' => ['admin.admin.*'],
         'title' => 'Quản trị viên',

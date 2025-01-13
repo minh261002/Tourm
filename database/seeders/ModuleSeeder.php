@@ -43,6 +43,20 @@ class ModuleSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Quản lý chuyên mục',
+                'description' => 'Quản lý chuyên mục',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý bài viết',
+                'description' => 'Quản lý bài viết',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
         ]);
 
         //Permission
@@ -143,6 +157,54 @@ class ModuleSeeder extends Seeder
                 'guard_name' => 'admin',
                 'module_id' => 4,
             ],
+            [
+                'title' => 'Xem chuyên mục',
+                'name' => 'viewPostCatalogue',
+                'guard_name' => 'admin',
+                'module_id' => 5,
+            ],
+            [
+                'title' => 'Tạo chuyên mục',
+                'name' => 'createPostCatalogue',
+                'guard_name' => 'admin',
+                'module_id' => 5,
+            ],
+            [
+                'title' => 'Sửa chuyên mục',
+                'name' => 'editPostCatalogue',
+                'guard_name' => 'admin',
+                'module_id' => 5,
+            ],
+            [
+                'title' => 'Xóa chuyên mục',
+                'name' => 'deletePostCatalogue',
+                'guard_name' => 'admin',
+                'module_id' => 5,
+            ],
+            [
+                'title' => 'Xem bài viết',
+                'name' => 'viewPost',
+                'guard_name' => 'admin',
+                'module_id' => 6,
+            ],
+            [
+                'title' => 'Tạo bài viết',
+                'name' => 'createPost',
+                'guard_name' => 'admin',
+                'module_id' => 6,
+            ],
+            [
+                'title' => 'Sửa bài viết',
+                'name' => 'editPost',
+                'guard_name' => 'admin',
+                'module_id' => 6,
+            ],
+            [
+                'title' => 'Xóa bài viết',
+                'name' => 'deletePost',
+                'guard_name' => 'admin',
+                'module_id' => 6,
+            ],
         ]);
 
         //Role
@@ -220,6 +282,38 @@ class ModuleSeeder extends Seeder
             ],
             [
                 'permission_id' => 16,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 17,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 18,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 19,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 20,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 21,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 22,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 23,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 24,
                 'role_id' => 1,
             ],
         ]);
