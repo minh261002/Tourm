@@ -3,6 +3,7 @@
 use App\Admin\Http\Controllers\Admin\AdminController;
 use App\Admin\Http\Controllers\Auth\AuthController;
 use App\Admin\Http\Controllers\Dashboard\DashboardController;
+use App\Admin\Http\Controllers\Destination\DestinationController;
 use App\Admin\Http\Controllers\Module\ModuleController;
 use App\Admin\Http\Controllers\Permission\PermissionController;
 use App\Admin\Http\Controllers\Post\PostCatalogueController;
@@ -198,5 +199,28 @@ Route::prefix('admin')->as('admin.')->group(function () {
             Route::get('slider-item/edit/{id}', [SliderController::class, 'editItem'])->name('slider.item.edit');
             Route::put('slider-item/update', [SliderController::class, 'updateItem'])->name('slider.item.update');
         });
+
+        //Destination
+        Route::prefix('destination')->as('destination.')->group(function () {
+            Route::middleware(['permission:viewDestination'])->group(function () {
+                Route::get('/', [DestinationController::class, 'index'])->name('index');
+            });
+
+            Route::middleware(['permission:createDestination'])->group(function () {
+                Route::get('/create', [DestinationController::class, 'create'])->name('create');
+                Route::post('/store', [DestinationController::class, 'store'])->name('store');
+            });
+
+            Route::middleware(['permission:editDestination'])->group(function () {
+                Route::get('/edit/{id}', [DestinationController::class, 'edit'])->name('edit');
+                Route::put('/update', [DestinationController::class, 'update'])->name('update');
+                Route::patch('/update-status', [DestinationController::class, 'updateStatus'])->name('update.status');
+            });
+
+            Route::middleware(['permission:deleteDestination'])->group(function () {
+                Route::delete('/delete/{id}', [DestinationController::class, 'delete'])->name('delete');
+            });
+        });
+
     });
 });
