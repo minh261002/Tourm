@@ -7,6 +7,7 @@ use App\Admin\Repositories\Destination\DestinationRepositoryInterface;
 use App\Admin\Services\Destination\DestinationServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Admin\Http\Requests\Destination\DestinationRequest;
+use Illuminate\Http\Request;
 
 class DestinationController extends Controller
 {
@@ -55,6 +56,13 @@ class DestinationController extends Controller
     {
         $this->service->update($request);
         return redirect()->route('admin.destination.index')->with('success', 'Cập nhật điểm đến thành công');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $data = $request->only('id', 'status');
+        $this->repository->update($data['id'], $data);
+        return response()->json(['status' => 'success', 'message' => 'Cập nhật trạng thái thành công']);
     }
 
     public function delete(int $id)

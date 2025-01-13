@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Thêm module mới')
+@section('title', 'Thêm điểm đến mới')
 
 @push('styles')
 @endpush
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản lý module
+                        Quản lý điểm đến
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -21,12 +21,12 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('admin.module.index') }}">
-                                    Module
+                                <a href="{{ route('admin.destination.index') }}">
+                                    Quản lý điểm đến
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Thêm module mới
+                                Thêm điểm đến mới
                             </li>
                         </ol>
                     </nav>
@@ -36,7 +36,7 @@
 
         <!-- Page body -->
         <div class="page-body">
-            <form action="{{ route('admin.module.store') }}" method="POST">
+            <form action="{{ route('admin.destination.store') }}" method="POST">
                 @csrf
 
                 <div class="row">
@@ -44,14 +44,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Thông tin module
+                                    Thông tin điểm đến
                                 </h3>
                             </div>
 
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label for="name" class="form-label">
-                                        Tên module
+                                        Tên điểm đến
                                     </label>
 
                                     <input type="text" class="form-control" name="name" id="name"
@@ -86,6 +86,22 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <h2 class="card-title mb-0">Ảnh đại diện</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <span class="image img-cover image-target"><img class="w-100"
+                                                src="{{ old('image') ? old('image') : asset('admin/images/not-found.jpg') }}"
+                                                alt=""></span>
+                                        <input type="hidden" name="image" value="{{ old('image') }}">
+                                    </div>
                                 </div>
                             </div>
                         </div>

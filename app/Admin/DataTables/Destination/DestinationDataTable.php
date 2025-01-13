@@ -21,6 +21,7 @@ class DestinationDataTable extends BaseDataTable
         $this->view = [
             'action' => 'admin.destination.datatable.action',
             'status' => 'admin.destination.datatable.status',
+            'image' => 'admin.destination.datatable.image',
         ];
     }
     public function query()
@@ -54,7 +55,8 @@ class DestinationDataTable extends BaseDataTable
         $this->customEditColumns = [
             'action' => $this->view['action'],
             'status' => $this->view['status'],
-            'created_at' => '{{formatDate($created_at)}}'
+            'created_at' => '{{formatDate($created_at)}}',
+            'image' => $this->view['image'],
         ];
     }
 
@@ -70,7 +72,7 @@ class DestinationDataTable extends BaseDataTable
         $this->customRawColumns = [
             'action',
             'status',
-            'description',
+            'image',
         ];
     }
 
