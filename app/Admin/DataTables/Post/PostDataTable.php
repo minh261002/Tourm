@@ -1,44 +1,60 @@
 <?php
 
-namespace App\Admin\DataTables\Admin;
+namespace App\Admin\DataTables\Post;
 
 use App\Admin\DataTables\BaseDataTable;
-use App\Admin\Repositories\Admin\AdminRepositoryInterface;
+use App\Admin\Repositories\Post\PostRepositoryInterface;
 
-class AdminDataTable extends BaseDataTable
+class PostDataTable extends BaseDataTable
 {
-    protected $nameTable = 'adminTable';
+    protected $nameTable = 'postTable';
     protected $repository;
 
     public function __construct(
-        AdminRepositoryInterface $repository
+        PostRepositoryInterface $repository
     ) {
         $this->repository = $repository;
         parent::__construct();
     }
-
     public function setView(): void
     {
         $this->view = [
-            'action' => 'admin.admin.datatable.action',
-            'image' => 'admin.admin.datatable.image',
-            'status' => 'admin.admin.datatable.status',
+            'action' => 'admin.post.datatable.action',
+            'image' => 'admin.post.datatable.image',
+            'is_featured' => 'admin.post.datatable.feature',
+            'status' => 'admin.post.datatable.status',
         ];
     }
-
     public function query()
     {
-        return $this->repository->getByQueryBuilder([], ['roles']);
+        return $this->repository->getQueryBuilderOrderBy();
     }
 
     public function setColumnSearch(): void
     {
-        $this->columnAllSearch = [1, 2, 3];
-    }
 
+        $this->columnAllSearch = [1, 2, 3];
+        $this->columnSearchSelect = [
+            [
+                'column' => 2,
+                'data' => [
+                    '0' => 'Không nổi bật',
+                    '1' => 'Nổi bật',
+                ]
+            ],
+            [
+                'column' => 3,
+                'data' => [
+                    '1' => 'Không hoạt động',
+                    '2' => 'Đang hoạt động',
+                ]
+            ]
+        ];
+
+    }
     protected function setCustomColumns(): void
     {
-        $this->customColumns = config('datatable_columns.admins', []);
+        $this->customColumns = config('datatable_columns.posts', []);
     }
 
     protected function setCustomEditColumns(): void
@@ -46,10 +62,7 @@ class AdminDataTable extends BaseDataTable
         $this->customEditColumns = [
             'action' => $this->view['action'],
             'image' => $this->view['image'],
-            'role' => function ($admin) {
-                $roles = $admin->roles->pluck('name')->toArray();
-                return '<code>' . implode(', ', $roles) . '</code>';
-            },
+            'is_featured' => $this->view['is_featured'],
             'status' => $this->view['status'],
         ];
     }
@@ -66,7 +79,7 @@ class AdminDataTable extends BaseDataTable
         $this->customRawColumns = [
             'action',
             'image',
-            'role',
+            'is_featured',
             'status',
         ];
     }
@@ -74,11 +87,7 @@ class AdminDataTable extends BaseDataTable
     public function setCustomFilterColumns(): void
     {
         $this->customFilterColumns = [
-            'role' => function ($query, $keyword) {
-                return $query->whereHas('roles', function ($query) use ($keyword) {
-                    $query->where('name', 'like', '%' . $keyword . '%');
-                });
-            },
+            //
         ];
     }
 }
