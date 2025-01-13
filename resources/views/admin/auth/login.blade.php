@@ -53,3 +53,20 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showPassword = document.getElementById('show_password');
+            const password = document.querySelector('input[name="password"]');
+
+            showPassword.addEventListener('click', function() {
+                if (password.type === 'password') {
+                    password.type = 'text';
+                } else {
+                    password.type = 'password';
+                }
+            });
+        });
+    </script>
+@endpush

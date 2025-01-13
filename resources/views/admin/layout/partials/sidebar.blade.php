@@ -8,7 +8,7 @@
             aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h1 class="navbar-brand navbar-brand-autodark">
+        <h1 class="navbar-brand navbar-brand-autodark p-2">
             <a href="{{ route('admin.dashboard') }}">
                 <img src="{{ asset('admin/images/logo.svg') }}" alt="Logo" class="navbar-brand-image"
                     style="height:2.5em">
