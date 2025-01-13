@@ -3,7 +3,6 @@
 namespace App\Admin\Http\Controllers\Admin;
 
 use App\Admin\DataTables\Admin\AdminDataTable;
-use App\Enums\ActiveStatus;
 use App\Http\Controllers\Controller;
 use App\Admin\Http\Requests\Admin\AdminRequest;
 use App\Models\Province;

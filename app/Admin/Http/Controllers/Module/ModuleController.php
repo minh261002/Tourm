@@ -5,7 +5,6 @@ namespace App\Admin\Http\Controllers\Module;
 use App\Admin\DataTables\Module\ModuleDataTable;
 use App\Admin\Repositories\Module\ModuleRepositoryInterface;
 use App\Admin\Services\Module\ModuleServiceInterface;
-use App\Enums\Module\ModuleStatus;
 use App\Http\Controllers\Controller;
 use App\Admin\Http\Requests\Module\ModuleRequest;
 
