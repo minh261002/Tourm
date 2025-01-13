@@ -2,6 +2,27 @@
 
 return [
     [
+        'active' => ['admin.destination.*'],
+        'show' => ['admin.destination.*'],
+        'title' => 'Quản lý điểm đến',
+        'icon' => 'ti ti-map-pin fs-2',
+        'permission' => ['viewDestination', 'createDestination', 'editDestination', 'deleteDestination'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.destination.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createDestination'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.destination.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewDestination'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.post_catalogue.*'],
         'show' => ['admin.post_catalogue.*'],
         'title' => 'Quản lý chuyên mục',
