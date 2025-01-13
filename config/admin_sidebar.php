@@ -5,7 +5,7 @@ return [
         'active' => ['admin.post_catalogue.*'],
         'show' => ['admin.post_catalogue.*'],
         'title' => 'Quản lý chuyên mục',
-        'icon' => 'ti ti-book fs-2',
+        'icon' => 'ti ti-list-letters fs-2',
         'permission' => ['viewPostCatalogue', 'createPostCatalogue', 'editPostCatalogue', 'deletePostCatalogue'],
         'children' => [
             [
@@ -47,7 +47,7 @@ return [
         'active' => ['admin.slider.*'],
         'show' => ['admin.slider.*'],
         'title' => 'Quản lý slider',
-        'icon' => 'ti ti-photo fs-2',
+        'icon' => 'ti ti-library-photo fs-2',
         'permission' => ['viewSlider', 'createSlider', 'editSlider', 'deleteSlider'],
         'children' => [
             [
