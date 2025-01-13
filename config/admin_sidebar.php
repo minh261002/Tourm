@@ -2,8 +2,8 @@
 
 return [
     [
-        'active' => ['admin.post-catalogue.*'],
-        'show' => ['admin.post-catalogue.*'],
+        'active' => ['admin.post_catalogue.*'],
+        'show' => ['admin.post_catalogue.*'],
         'title' => 'Quản lý chuyên mục',
         'icon' => 'ti ti-book fs-2',
         'permission' => ['viewPostCatalogue', 'createPostCatalogue', 'editPostCatalogue', 'deletePostCatalogue'],

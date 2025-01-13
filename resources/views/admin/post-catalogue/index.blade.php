@@ -72,7 +72,7 @@
 
     <script>
         $(document).on('change', '.form-check-input', function() {
-            let status = $(this).prop('checked') == true ? 2 : 1;
+            let status = $(this).prop('checked') == true ? 'active' : 'inactive';
             let id = $(this).data('id');
 
             $.ajax({
