@@ -84,6 +84,13 @@ class ModuleSeeder extends Seeder
                 'status' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý danh mục',
+                'description' => 'Quản lý danh mục',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
 
@@ -329,6 +336,30 @@ class ModuleSeeder extends Seeder
                 'guard_name' => 'admin',
                 'module_id' => 10,
             ],
+            [
+                'title' => 'Xem danh mục',
+                'name' => 'viewCategory',
+                'guard_name' => 'admin',
+                'module_id' => 11,
+            ],
+            [
+                'title' => 'Tạo danh mục',
+                'name' => 'createCategory',
+                'guard_name' => 'admin',
+                'module_id' => 11,
+            ],
+            [
+                'title' => 'Sửa danh mục',
+                'name' => 'editCategory',
+                'guard_name' => 'admin',
+                'module_id' => 11,
+            ],
+            [
+                'title' => 'Xóa danh mục',
+                'name' => 'deleteCategory',
+                'guard_name' => 'admin',
+                'module_id' => 11,
+            ],
         ]);
 
         //Role
@@ -504,6 +535,23 @@ class ModuleSeeder extends Seeder
                 'permission_id' => 40,
                 'role_id' => 1,
             ],
+            [
+                'permission_id' => 41,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 42,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 43,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 44,
+                'role_id' => 1,
+            ]
+
         ]);
 
         //Admin
