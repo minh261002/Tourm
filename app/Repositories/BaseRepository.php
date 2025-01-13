@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Admin\Repositories;
 
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
