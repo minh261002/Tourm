@@ -63,6 +63,27 @@ class ModuleSeeder extends Seeder
                 'status' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý điểm đến',
+                'description' => 'Quản lý điểm đến',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý tiện ích',
+                'description' => 'Quản lý tiện ích',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý chỗ ở',
+                'description' => 'Quản lý chỗ ở',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
 
@@ -236,6 +257,78 @@ class ModuleSeeder extends Seeder
                 'guard_name' => 'admin',
                 'module_id' => 7,
             ],
+            [
+                'title' => 'Xem điểm đến',
+                'name' => 'viewDestination',
+                'guard_name' => 'admin',
+                'module_id' => 8,
+            ],
+            [
+                'title' => 'Tạo điểm đến',
+                'name' => 'createDestination',
+                'guard_name' => 'admin',
+                'module_id' => 8,
+            ],
+            [
+                'title' => 'Sửa điểm đến',
+                'name' => 'editDestination',
+                'guard_name' => 'admin',
+                'module_id' => 8,
+            ],
+            [
+                'title' => 'Xóa điểm đến',
+                'name' => 'deleteDestination',
+                'guard_name' => 'admin',
+                'module_id' => 8,
+            ],
+            [
+                'title' => 'Xem tiện ích',
+                'name' => 'viewAmenity',
+                'guard_name' => 'admin',
+                'module_id' => 9,
+            ],
+            [
+                'title' => 'Tạo tiện ích',
+                'name' => 'createAmenity',
+                'guard_name' => 'admin',
+                'module_id' => 9,
+            ],
+            [
+                'title' => 'Sửa tiện ích',
+                'name' => 'editAmenity',
+                'guard_name' => 'admin',
+                'module_id' => 9,
+            ],
+            [
+                'title' => 'Xóa tiện ích',
+                'name' => 'deleteAmenity',
+                'guard_name' => 'admin',
+                'module_id' => 9,
+            ],
+            [
+                'title' => 'Xem chỗ ở',
+                'name' => 'viewProperty',
+                'guard_name' => 'admin',
+                'module_id' => 10,
+            ],
+            [
+                'title' => 'Tạo chỗ ở',
+                'name' => 'createProperty',
+                'guard_name' => 'admin',
+                'module_id' => 10,
+            ],
+            [
+                'title' => 'Sửa chỗ ở',
+                'name' => 'editProperty',
+                'guard_name' => 'admin',
+                'module_id' => 10,
+            ],
+            [
+                'title' => 'Xóa chỗ ở',
+                'name' => 'deleteProperty',
+                'guard_name' => 'admin',
+                'module_id' => 10,
+            ],
         ]);
 
         //Role
@@ -361,6 +454,54 @@ class ModuleSeeder extends Seeder
             ],
             [
                 'permission_id' => 28,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 29,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 30,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 31,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 32,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 33,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 34,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 35,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 36,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 37,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 38,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 39,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 40,
                 'role_id' => 1,
             ],
         ]);
