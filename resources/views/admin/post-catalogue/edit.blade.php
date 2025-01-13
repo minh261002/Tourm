@@ -95,7 +95,7 @@
                                         </label>
 
                                         <input type="number" class="form-control" name="position" id="position"
-                                            value="{{ $catalogue->position }}">
+                                            value="{{ $post_catalogue->position }}">
 
                                         @error('position')
                                             <span class="text-danger">{{ $message }}</span>
@@ -108,7 +108,7 @@
                                             Mô tả
                                         </label>
 
-                                        <textarea class="ck-editor" name="desc" id="desc">{{ $catalogue->desc }}</textarea>
+                                        <textarea class="ck-editor" name="desc" id="desc">{{ $post_catalogue->desc }}</textarea>
 
                                         @error('desc')
                                             <span class="text-danger">{{ $message }}</span>
@@ -127,7 +127,7 @@
                                 <div class="form-group mb-3">
                                     <label for="meta_title" class="form-label">Tiêu đề SEO</label>
                                     <input type="text" class="form-control" id="meta_title" name="meta_title"
-                                        value="{{ old('meta_title', $catalogue->meta_title ?? '') }}">
+                                        value="{{ old('meta_title', $post_catalogue->meta_title ?? '') }}">
                                     @error('meta_title')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -135,7 +135,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="meta_description" class="form-label">Mô tả SEO</label>
-                                    <textarea name="meta_description" class="form-control" id="meta_description">{{ old('meta_description', $catalogue->meta_description ?? '') }}</textarea>
+                                    <textarea name="meta_description" class="form-control" id="meta_description">{{ old('meta_description', $post_catalogue->meta_description ?? '') }}</textarea>
                                     @error('meta_description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -146,7 +146,7 @@
                                         (Phân cách bằng dấu phẩy)
                                     </label>
                                     <input type="text" class="form-control" id="meta_keywords" name="meta_keywords"
-                                        value="{{ old('meta_keywords', $catalogue->meta_keywords ?? '') }}">
+                                        value="{{ old('meta_keywords', $post_catalogue->meta_keywords ?? '') }}">
                                     @error('meta_keywords')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -166,15 +166,9 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <select class="form-select" name="status" id="status">
-                                        {{-- <option value="2" {{ $catalogue->status === 2 ? 'selected' : '' }}>Đang hoạt
-                                            động
-                                        </option>
-                                        <option value="1" {{ $catalogue->status === 1 ? 'selected' : '' }}>Không hoạt
-                                            động</option> --}}
-
                                         @foreach ($status as $key => $value)
                                             <option value="{{ $key }}"
-                                                {{ $key == $catalogue->status ? 'selected' : '' }}>
+                                                {{ $key == $post_catalogue->status ? 'selected' : '' }}>
                                                 {{ $value }}
                                             </option>
                                         @endforeach
@@ -198,10 +192,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <span class="image img-cover image-target"><img class="w-100"
-                                                src="{{ old('image', $catalogue->image ?? '') ? old('image', $catalogue->image ?? '') : asset('admin/images/not-found.jpg') }}"
+                                                src="{{ old('image', $post_catalogue->image ?? '') ? old('image', $post_catalogue->image ?? '') : asset('admin/images/not-found.jpg') }}"
                                                 alt=""></span>
                                         <input type="hidden" name="image"
-                                            value="{{ old('image', $catalogue->image ?? '') }}">
+                                            value="{{ old('image', $post_catalogue->image ?? '') }}">
                                     </div>
                                 </div>
                             </div>

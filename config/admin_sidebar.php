@@ -2,8 +2,8 @@
 
 return [
     [
-        'active' => ['admin.post-catalogue.*'],
-        'show' => ['admin.post-catalogue.*'],
+        'active' => ['admin.post_catalogue.*'],
+        'show' => ['admin.post_catalogue.*'],
         'title' => 'Quản lý chuyên mục',
         'icon' => 'ti ti-book fs-2',
         'permission' => ['viewPostCatalogue', 'createPostCatalogue', 'editPostCatalogue', 'deletePostCatalogue'],
@@ -40,6 +40,27 @@ return [
                 'route' => 'admin.post.index',
                 'icon' => 'ti ti-list fs-3 me-2',
                 'permission' => 'viewPost'
+            ]
+        ]
+    ],
+    [
+        'active' => ['admin.slider.*'],
+        'show' => ['admin.slider.*'],
+        'title' => 'Quản lý slider',
+        'icon' => 'ti ti-photo fs-2',
+        'permission' => ['viewSlider', 'createSlider', 'editSlider', 'deleteSlider'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.slider.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createSlider'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.slider.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewSlider'
             ]
         ]
     ],

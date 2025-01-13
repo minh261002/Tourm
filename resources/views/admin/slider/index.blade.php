@@ -1,8 +1,6 @@
 @extends('admin.layout.master')
-@section('title', 'Quản lý chuyên mục bài viết')
 
-@push('styles')
-@endpush
+@section('title', 'Quản lý slider')
 
 @section('content')
     <div class="container-fluid">
@@ -10,7 +8,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản lý chuyên mục bài viết
+                        Quản lý slider
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -22,7 +20,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Quản lý chuyên mục bài viết
+                                Quản lý slider
                             </li>
                         </ol>
                     </nav>
@@ -36,10 +34,10 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">
-                            Danh sách chuyên mục bài viết
+                            Danh sách slider
                         </h3>
                         <div class="card-actions">
-                            <a href="{{ route('admin.post_catalogue.create') }}" class="btn btn-primary">
+                            <a href="{{ route('admin.slider.create') }}" class="btn btn-primary">
                                 <i class="ti ti-plus fs-4 me-1"></i>
                                 Thêm mới
                             </a>
@@ -63,6 +61,7 @@
     <script src="{{ asset('admin/js/buttons.server-side.js') }}"></script>
 @endpush
 
+
 @push('scripts')
     {{ $dataTable->scripts() }}
 
@@ -78,11 +77,11 @@
             $.ajax({
                 type: 'PATCH',
                 dataType: 'json',
-                url: '{{ route('admin.post_catalogue.update.status') }}',
+                url: '{{ route('admin.slider.update.status') }}',
                 data: {
                     '_token': '{{ csrf_token() }}',
                     'status': status,
-                    'id': id
+                    'slider_id': id
                 },
                 success: function(data) {
                     FuiToast.success('Cập nhật trạng thái thành công');

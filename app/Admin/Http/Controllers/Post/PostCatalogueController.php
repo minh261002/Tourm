@@ -3,7 +3,6 @@
 namespace App\Admin\Http\Controllers\Post;
 
 use App\Admin\DataTables\Post\PostCatalogueDataTable;
-use App\Enums\ActiveStatus;
 use App\Http\Controllers\Controller;
 use App\Admin\Http\Requests\Post\PostCatalogueRequest;
 use App\Admin\Repositories\Post\PostCatalogueRepositoryInterface;

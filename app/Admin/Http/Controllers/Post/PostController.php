@@ -3,8 +3,6 @@
 namespace App\Admin\Http\Controllers\Post;
 
 use App\Admin\DataTables\Post\PostDataTable;
-use App\Enums\ActiveStatus;
-use App\Enums\Post\PostFeature;
 use App\Http\Controllers\Controller;
 use App\Admin\Http\Requests\Post\PostRequest;
 use App\Admin\Repositories\Post\PostCatalogueRepositoryInterface;
@@ -40,7 +38,10 @@ class PostController extends Controller
             'inactive' => 'Không hoạt động',
         ];
         $postCatalogues = $this->postCatalogueRepository->getFlatTree();
-        $featured = PostFeature::asSelectArray();
+        $featured = [
+            '0' => 'Không nổi bật',
+            '1' => 'Nổi bật',
+        ];
         return view('admin.post.create', compact('postCatalogues', 'status', 'featured'));
     }
 

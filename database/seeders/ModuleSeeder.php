@@ -56,6 +56,13 @@ class ModuleSeeder extends Seeder
                 'status' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý slider',
+                'description' => 'Quản lý slider',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
 
@@ -205,6 +212,30 @@ class ModuleSeeder extends Seeder
                 'guard_name' => 'admin',
                 'module_id' => 6,
             ],
+            [
+                'title' => 'Xem slider',
+                'name' => 'viewSlider',
+                'guard_name' => 'admin',
+                'module_id' => 7,
+            ],
+            [
+                'title' => 'Tạo slider',
+                'name' => 'createSlider',
+                'guard_name' => 'admin',
+                'module_id' => 7,
+            ],
+            [
+                'title' => 'Sửa slider',
+                'name' => 'editSlider',
+                'guard_name' => 'admin',
+                'module_id' => 7,
+            ],
+            [
+                'title' => 'Xóa slider',
+                'name' => 'deleteSlider',
+                'guard_name' => 'admin',
+                'module_id' => 7,
+            ],
         ]);
 
         //Role
@@ -314,6 +345,22 @@ class ModuleSeeder extends Seeder
             ],
             [
                 'permission_id' => 24,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 25,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 26,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 27,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 28,
                 'role_id' => 1,
             ],
         ]);

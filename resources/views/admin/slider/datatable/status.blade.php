@@ -3,5 +3,4 @@
         <input class="form-check-input" type="checkbox" {{ $status == 'active' ? 'checked' : '' }}
             data-id="{{ $id }}" style="transform: scale(1.5);" />
     </label>
-
 </div>

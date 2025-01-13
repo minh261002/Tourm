@@ -8,6 +8,7 @@ use App\Admin\Http\Controllers\Permission\PermissionController;
 use App\Admin\Http\Controllers\Post\PostCatalogueController;
 use App\Admin\Http\Controllers\Post\PostController;
 use App\Admin\Http\Controllers\Role\RoleController;
+use App\Admin\Http\Controllers\Slider\SliderController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -133,6 +134,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
             });
         });
 
+        //Post
         Route::prefix('post')->as('post.')->group(function () {
             Route::middleware(['permission:viewPost'])->group(function () {
                 Route::get('/', [PostController::class, 'index'])->name('index');
@@ -152,6 +154,49 @@ Route::prefix('admin')->as('admin.')->group(function () {
             Route::middleware(['permission:deletePost'])->group(function () {
                 Route::delete('/delete/{id}', [PostController::class, 'delete'])->name('delete');
             });
+        });
+
+        //quản lý slider
+        Route::prefix('slider')->group(function () {
+            Route::middleware(['permission:viewSlider'])->group(function () {
+                Route::get('/', [SliderController::class, 'index'])->name('slider.index');
+            });
+
+            Route::middleware(['permission:createSlider'])->group(function () {
+                Route::get('/create', [SliderController::class, 'create'])->name('slider.create');
+                Route::post('/store', [SliderController::class, 'store'])->name('slider.store');
+            });
+
+            Route::middleware(['permission:editSlider'])->group(function () {
+                Route::get('/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
+                Route::put('/update', [SliderController::class, 'update'])->name('slider.update');
+                Route::patch('/update/status', [SliderController::class, 'updateStatus'])->name('slider.update.status');
+            });
+
+            Route::middleware(['permission:deleteSlider'])->group(function () {
+                Route::delete('/delete/{id}', [SliderController::class, 'delete'])->name('slider.delete');
+            });
+        });
+
+        //quản lý slider item
+        Route::prefix('slider/{id}/item')->group(function () {
+            Route::middleware(['permission:viewSlider'])->group(function () {
+                Route::get('/', [SliderController::class, 'indexItem'])->name('slider.item.index');
+            });
+
+            Route::middleware(['permission:createSlider'])->group(function () {
+                Route::get('/create', [SliderController::class, 'createItem'])->name('slider.item.create');
+                Route::post('/store', [SliderController::class, 'storeItem'])->name('slider.item.store');
+            });
+        });
+
+        Route::middleware(['permission:deleteSlider'])->group(function () {
+            Route::delete('slider-item/delete/{id}', [SliderController::class, 'deleteItem'])->name('slider.item.delete');
+        });
+
+        Route::middleware(['permission:editSlider'])->group(function () {
+            Route::get('slider-item/edit/{id}', [SliderController::class, 'editItem'])->name('slider.item.edit');
+            Route::put('slider-item/update', [SliderController::class, 'updateItem'])->name('slider.item.update');
         });
     });
 });
