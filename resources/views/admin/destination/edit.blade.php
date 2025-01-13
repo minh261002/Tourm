@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản lý module
+                        Quản lý điểm đến
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -21,8 +21,8 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('admin.module.index') }}">
-                                    Module
+                                <a href="{{ route('admin.destination.index') }}">
+                                    Quản lý điểm đến
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
@@ -36,37 +36,37 @@
 
         <!-- Page body -->
         <div class="page-body">
-            <form action="{{ route('admin.module.update') }}" method="POST">
+            <form action="{{ route('admin.destination.update') }}" method="post">
                 @csrf
                 @method('PUT')
 
-                <input type="hidden" name="id" value="{{ $module->id }}">
+                <input type="hidden" name="id" value="{{ $destination->id }}">
 
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Thông tin module
+                                    Thông tin điểm đến
                                 </h3>
                             </div>
 
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label for="name" class="form-label">
-                                        Tên module
+                                        Tên điểm đến
                                     </label>
 
                                     <input type="text" class="form-control" name="name" id="name"
-                                        value="{{ $module->name }}">
+                                        value="{{ $destination->name }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description" class="form-label">
+                                    <label for="desc" class="form-label">
                                         Mô tả
                                     </label>
 
-                                    <textarea class="ck-editor" name="description" id="description">{{ $module->description }}</textarea>
+                                    <textarea class="ck-editor" name="desc" id="desc">{{ $destination->desc }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -85,11 +85,31 @@
                                     <select class="form-select" name="status" id="status">
                                         @foreach ($status as $key => $value)
                                             <option value="{{ $key }}"
-                                                {{ $module->status == $key ? 'selected' : '' }}>
+                                                {{ $destination->status == $key ? 'selected' : '' }}>
                                                 {{ $value }}
                                             </option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    Ảnh
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <span class="image img-cover image-target"><img class="w-100"
+                                                src="{{ old('image', $destination->image ?? '') ? old('image', $destination->image ?? '') : asset('admin/images/not-found.jpg') }}"
+                                                alt=""></span>
+                                        <input type="hidden" name="image"
+                                            value="{{ old('image', $destination->image ?? '') }}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +122,7 @@
                             </div>
 
                             <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <a href="{{ route('admin.module.index') }}" class="btn btn-secondary w-100">
+                                <a href="{{ route('admin.destination.index') }}" class="btn btn-secondary w-100">
                                     Quay lại
                                 </a>
 

@@ -59,11 +59,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description" class="form-label">
+                                    <label for="desc" class="form-label">
                                         Mô tả
                                     </label>
 
-                                    <textarea class="ck-editor" name="description" id="description">{{ old('description') }}</textarea>
+                                    <textarea class="ck-editor" name="desc" id="desc">{{ old('desc') }}</textarea>
                                 </div>
                             </div>
                         </div>
