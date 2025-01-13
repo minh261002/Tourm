@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Admin\Services\Role;
+namespace App\Admin\Services\Permission;
 
 use Illuminate\Http\Request;
 
-interface RoleServiceInterface
+interface PermissionServiceInterface
 {
     public function store(Request $request);
-
     public function update(Request $request);
 }

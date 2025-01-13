@@ -1,6 +1,7 @@
 <?php
 
 use App\Admin\Http\Controllers\Auth\AuthController;
+use App\Admin\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -17,5 +18,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     });
 
 
-    Route::middleware(['auth:admin'])->group(function () { });
+    Route::middleware(['auth:admin'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    });
 });
