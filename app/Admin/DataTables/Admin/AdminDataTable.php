@@ -33,16 +33,7 @@ class AdminDataTable extends BaseDataTable
 
     public function setColumnSearch(): void
     {
-        $this->columnAllSearch = [1, 2, 3, 4];
-        $this->columnSearchSelect = [
-            [
-                'column' => 4,
-                'data' => [
-                    'active' => 'Đang hoạt động',
-                    'inactive' => 'Ngưng hoạt động',
-                ]
-            ]
-        ];
+        $this->columnAllSearch = [1, 2, 3];
     }
 
     protected function setCustomColumns(): void

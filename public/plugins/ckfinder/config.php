@@ -76,12 +76,13 @@ $config['backends'][] = array(
     'name' => 'default',
     'adapter' => 'local',
     'baseUrl' => '/uploads/',
-    //
-    'chmodFiles' => 0755,
-    'chmodFolders' => 0755,
+    'root' => __DIR__ . '/../../uploads/',
+    'chmodFiles' => 0777,
+    'chmodFolders' => 0777,
     'filesystemEncoding' => 'UTF-8',
     'followSymlinks' => true
 );
+
 
 /*================================ Resource Types =====================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_resourceTypes
