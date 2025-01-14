@@ -23,6 +23,27 @@ return [
         ]
     ],
     [
+        'active' => ['admin.property.*'],
+        'show' => ['admin.property.*'],
+        'title' => 'Quản lý chỗ ở',
+        'icon' => 'ti ti-building fs-2',
+        'permission' => ['viewProperty', 'createProperty', 'editProperty', 'deleteProperty'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.property.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createProperty'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.property.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewProperty'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.category.*'],
         'show' => ['admin.category.*'],
         'title' => 'Quản lý danh mục',

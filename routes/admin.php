@@ -290,5 +290,27 @@ Route::prefix('admin')->as('admin.')->group(function () {
                 Route::delete('/delete/{id}', [AmenityController::class, 'delete'])->name('delete');
             });
         });
+
+        //Property
+        Route::prefix('property')->as('property.')->group(function () {
+            Route::middleware(['permission:viewProperty'])->group(function () {
+                Route::get('/', [PropertyController::class, 'index'])->name('index');
+            });
+
+            Route::middleware(['permission:createProperty'])->group(function () {
+                Route::get('/create', [PropertyController::class, 'create'])->name('create');
+                Route::post('/store', [PropertyController::class, 'store'])->name('store');
+            });
+
+            Route::middleware(['permission:editProperty'])->group(function () {
+                Route::get('/edit/{id}', [PropertyController::class, 'edit'])->name('edit');
+                Route::put('/update', [PropertyController::class, 'update'])->name('update');
+                Route::patch('/update-status', [PropertyController::class, 'updateStatus'])->name('update.status');
+            });
+
+            Route::middleware(['permission:deleteProperty'])->group(function () {
+                Route::delete('/delete/{id}', [PropertyController::class, 'delete'])->name('delete');
+            });
+        });
     });
 });
