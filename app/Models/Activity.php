@@ -22,4 +22,14 @@ class Activity extends Model
     {
         return $this->hasMany(Destination::class, 'activity_id');
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_activity', 'activity_id', 'category_id');
+    }
+
+    public function dates()
+    {
+        return $this->hasMany(ActivityDate::class, 'activity_id');
+    }
 }

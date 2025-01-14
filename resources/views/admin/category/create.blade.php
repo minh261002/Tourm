@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Thêm điểm đến mới')
+@section('title', 'Thêm danh mục mới')
 
 @push('styles')
 @endpush
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản lý điểm đến
+                        Quản lý danh mục
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -21,12 +21,12 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('admin.destination.index') }}">
-                                    Quản lý điểm đến
+                                <a href="{{ route('admin.category.index') }}">
+                                    Quản lý danh mục
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Thêm điểm đến mới
+                                Thêm danh mục mới
                             </li>
                         </ol>
                     </nav>
@@ -36,7 +36,7 @@
 
         <!-- Page body -->
         <div class="page-body">
-            <form action="{{ route('admin.destination.store') }}" method="POST">
+            <form action="{{ route('admin.category.store') }}" method="POST">
                 @csrf
 
                 <div class="row">
@@ -44,14 +44,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Thông tin điểm đến
+                                    Thông tin danh mục
                                 </h3>
                             </div>
 
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label for="name" class="form-label">
-                                        Tên điểm đến
+                                        Tên danh mục
                                     </label>
 
                                     <input type="text" class="form-control" name="name" id="name"
@@ -114,7 +114,7 @@
                             </div>
 
                             <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <a href="{{ route('admin.destination.index') }}" class="btn btn-secondary w-100">
+                                <a href="{{ route('admin.category.index') }}" class="btn btn-secondary w-100">
                                     Quay lại
                                 </a>
 

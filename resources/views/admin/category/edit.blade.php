@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Thêm điểm đến mới')
+@section('title', 'Chỉnh sửa thông tin')
 
 @push('styles')
 @endpush
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản lý điểm đến
+                        Quản lý danh mục
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -21,12 +21,12 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('admin.destination.index') }}">
-                                    Quản lý điểm đến
+                                <a href="{{ route('admin.category.index') }}">
+                                    Quản lý danh mục
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Thêm điểm đến mới
+                                Chỉnh sửa thông tin
                             </li>
                         </ol>
                     </nav>
@@ -36,26 +36,29 @@
 
         <!-- Page body -->
         <div class="page-body">
-            <form action="{{ route('admin.destination.store') }}" method="POST">
+            <form action="{{ route('admin.category.update') }}" method="post">
                 @csrf
+                @method('PUT')
+
+                <input type="hidden" name="id" value="{{ $category->id }}">
 
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Thông tin điểm đến
+                                    Thông tin danh mục
                                 </h3>
                             </div>
 
                             <div class="card-body">
                                 <div class="form-group mb-3">
                                     <label for="name" class="form-label">
-                                        Tên điểm đến
+                                        Tên danh mục
                                     </label>
 
                                     <input type="text" class="form-control" name="name" id="name"
-                                        value="{{ old('name') }}">
+                                        value="{{ $category->name }}">
                                 </div>
 
                                 <div class="form-group">
@@ -63,7 +66,7 @@
                                         Mô tả
                                     </label>
 
-                                    <textarea class="ck-editor" name="desc" id="desc">{{ old('desc') }}</textarea>
+                                    <textarea class="ck-editor" name="desc" id="desc">{{ $category->desc }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +84,8 @@
                                 <div class="form-group">
                                     <select class="form-select" name="status" id="status">
                                         @foreach ($status as $key => $value)
-                                            <option value="{{ $key }}">
+                                            <option value="{{ $key }}"
+                                                {{ $category->status == $key ? 'selected' : '' }}>
                                                 {{ $value }}
                                             </option>
                                         @endforeach
@@ -91,16 +95,20 @@
                         </div>
 
                         <div class="card mt-3">
-                            <div class="card-header d-flex align-items-center justify-content-between">
-                                <h2 class="card-title mb-0">Ảnh đại diện</h2>
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    Ảnh
+                                </h3>
                             </div>
+
                             <div class="card-body">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <span class="image img-cover image-target"><img class="w-100"
-                                                src="{{ old('image') ? old('image') : asset('admin/images/not-found.jpg') }}"
+                                                src="{{ old('image', $category->image ?? '') ? old('image', $category->image ?? '') : asset('admin/images/not-found.jpg') }}"
                                                 alt=""></span>
-                                        <input type="hidden" name="image" value="{{ old('image') }}">
+                                        <input type="hidden" name="image"
+                                            value="{{ old('image', $category->image ?? '') }}">
                                     </div>
                                 </div>
                             </div>
@@ -114,12 +122,12 @@
                             </div>
 
                             <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <a href="{{ route('admin.destination.index') }}" class="btn btn-secondary w-100">
+                                <a href="{{ route('admin.category.index') }}" class="btn btn-secondary w-100">
                                     Quay lại
                                 </a>
 
                                 <button type="submit" class="btn btn-primary w-100">
-                                    Thêm mới
+                                    Lưu thay đổi
                                 </button>
                             </div>
                         </div>

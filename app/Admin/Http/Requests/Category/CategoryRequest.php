@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Admin\Http\Requests\Destination;
+namespace App\Admin\Http\Requests\Category;
 
 use App\Admin\Http\Requests\BaseRequest;
 
-class DestinationRequest extends BaseRequest
+class CategoryRequest extends BaseRequest
 {
     protected function methodPost()
     {
         return [
             'name' => 'required',
-            'desc' => 'nullable',
+            'description' => 'nullable',
             'image' => 'nullable',
             'status' => 'required',
         ];
@@ -21,7 +21,7 @@ class DestinationRequest extends BaseRequest
         return [
             'id' => 'required|exists:destinations,id',
             'name' => 'required',
-            'desc' => 'nullable',
+            'description' => 'nullable',
             'image' => 'nullable',
             'status' => 'required',
         ];
@@ -30,7 +30,7 @@ class DestinationRequest extends BaseRequest
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập tên điểm đến',
+            'name.required' => 'Vui lòng nhập tên danh mục',
             'status.required' => 'Vui lòng chọn trạng thái',
         ];
     }
