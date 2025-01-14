@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Http\Controllers\Activity\ActivityController;
 use App\Admin\Http\Controllers\Admin\AdminController;
 use App\Admin\Http\Controllers\Auth\AuthController;
 use App\Admin\Http\Controllers\Category\CategoryController;
@@ -242,6 +243,28 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
             Route::middleware(['permission:deleteCategory'])->group(function () {
                 Route::delete('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
+            });
+        });
+
+        //Activity
+        Route::prefix('activity')->as('activity.')->group(function () {
+            Route::middleware(['permission:viewActivity'])->group(function () {
+                Route::get('/', [ActivityController::class, 'index'])->name('index');
+            });
+
+            Route::middleware(['permission:createActivity'])->group(function () {
+                Route::get('/create', [ActivityController::class, 'create'])->name('create');
+                Route::post('/store', [ActivityController::class, 'store'])->name('store');
+            });
+
+            Route::middleware(['permission:editActivity'])->group(function () {
+                Route::get('/edit/{id}', [ActivityController::class, 'edit'])->name('edit');
+                Route::put('/update', [ActivityController::class, 'update'])->name('update');
+                Route::patch('/update-status', [ActivityController::class, 'updateStatus'])->name('update.status');
+            });
+
+            Route::middleware(['permission:deleteActivity'])->group(function () {
+                Route::delete('/delete/{id}', [ActivityController::class, 'delete'])->name('delete');
             });
         });
     });
