@@ -50,7 +50,8 @@ class AmenityController extends Controller
             'inactive' => 'Ngưng hoạt động',
         ];
         $amenity = $this->repository->findOrFail($id);
-        return view('admin.amenity.edit', compact('amenity', 'status'));
+        $amenityGroups = config('amenities');
+        return view('admin.amenity.edit', compact('amenity', 'status', 'amenityGroups'));
     }
 
     public function update(AmenityRequest $request)
