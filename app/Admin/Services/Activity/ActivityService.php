@@ -17,10 +17,24 @@ class ActivityService implements ActivityServiceInterface
     public function store(Request $request)
     {
         $data = $request->validated();
+
         if ($data['image'] == null) {
             $data['image'] = '/admin/images/not-found.jpg';
         }
-        return $this->repository->create($data);
+
+        if (!isset($data['gallery'])) {
+            $data['gallery'] = json_encode([]);
+        } else {
+            $data['gallery'] = json_encode($data['gallery']);
+        }
+
+        $destinations = $data['destination_ids'];
+        unset($data['destination_ids']);
+
+        $activity = $this->repository->create($data);
+        $activity->destinations()->sync($destinations);
+
+        return $activity;
     }
 
     public function update(Request $request)
@@ -29,6 +43,19 @@ class ActivityService implements ActivityServiceInterface
         if ($data['image'] == null) {
             $data['image'] = '/admin/images/not-found.jpg';
         }
-        return $this->repository->update($data['id'], $data);
+
+        if (!isset($data['gallery'])) {
+            $data['gallery'] = json_encode([]);
+        } else {
+            $data['gallery'] = json_encode($data['gallery']);
+        }
+
+        $destinations = $data['destination_ids'];
+        unset($data['destination_ids']);
+
+        $activity = $this->repository->find($data['id']);
+        $activity->destinations()->sync($destinations);
+
+        return $activity->update($data);
     }
 }

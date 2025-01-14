@@ -32,11 +32,11 @@ class ActivityDataTable extends BaseDataTable
     public function setColumnSearch(): void
     {
 
-        $this->columnAllSearch = [1, 2, 3];
-        $this->columnSearchDate = [3];
+        $this->columnAllSearch = [1, 2, 3, 4, 5];
+        $this->columnSearchDate = [5];
         $this->columnSearchSelect = [
             [
-                'column' => 2,
+                'column' => 4,
                 'data' => [
                     'active' => 'Đang hoạt động',
                     'inactive' => 'Ngưng hoạt động',
@@ -47,7 +47,7 @@ class ActivityDataTable extends BaseDataTable
     }
     protected function setCustomColumns(): void
     {
-        $this->customColumns = config('datatable_columns.categories', []);
+        $this->customColumns = config('datatable_columns.activities', []);
     }
 
     protected function setCustomEditColumns(): void

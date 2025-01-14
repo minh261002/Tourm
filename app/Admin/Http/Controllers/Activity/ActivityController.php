@@ -63,7 +63,14 @@ class ActivityController extends Controller
             'inactive' => 'Ngưng hoạt động',
         ];
         $activity = $this->repository->findOrFail($id);
-        return view('admin.activity.edit', compact('activity', 'status'));
+        $categories = $this->categoryRepository->getByQueryBuilder(
+            ['status' => 'active']
+        )->pluck('name', 'id')->toArray();
+        $destinations = $this->destinationRepository->getByQueryBuilder(
+            ['status' => 'active']
+        )->pluck('name', 'id')->toArray();
+        $destination_ids = $activity->destinations->pluck('id')->toArray();
+        return view('admin.activity.edit', compact('activity', 'status', 'categories', 'destinations', 'destination_ids'));
     }
 
     public function update(ActivityRequest $request)

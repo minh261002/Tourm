@@ -78,7 +78,7 @@
             $.ajax({
                 type: 'PATCH',
                 dataType: 'json',
-                url: '{{ route('admin.category.update.status') }}',
+                url: '{{ route('admin.activity.update.status') }}',
                 data: {
                     '_token': '{{ csrf_token() }}',
                     'status': status,

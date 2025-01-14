@@ -143,7 +143,7 @@
                                         </div>
                                     @endif
                                     @php
-                                        $gallery = old('product.gallery') ?? ($product->gallery ?? []);
+                                        $gallery = old('gallery') ?? ($activity->gallery ?? []);
                                     @endphp
                                     <div class="upload-list {{ isset($gallery) && count($gallery) ? '' : 'hidden' }}">
                                         <ul id="sortable" class="clearfix data-album sortui ui-sortable">
@@ -154,7 +154,7 @@
                                                             <span class="span image img-scaledown">
                                                                 <img src="{{ $val }}"
                                                                     alt="{{ $val }}">
-                                                                <input type="hidden" name="product[gallery][]"
+                                                                <input type="hidden" name="gallery[]"
                                                                     value="{{ $val }}">
                                                             </span>
                                                             <button class="delete-image">
