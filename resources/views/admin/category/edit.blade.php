@@ -97,6 +97,27 @@
                         <div class="card mt-3">
                             <div class="card-header">
                                 <h3 class="card-title">
+                                    Hiển thị trang chủ
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <select class="form-select" name="is_home" id="is_home">
+                                        <option value="0" {{ $category->is_home == false ? 'selected' : '' }}>
+                                            Không hiển thị
+                                        </option>
+                                        <option value="1" {{ $category->is_home == true ? 'selected' : '' }}>
+                                            Hiển thị
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h3 class="card-title">
                                     Ảnh
                                 </h3>
                             </div>

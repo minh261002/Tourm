@@ -6,7 +6,7 @@
                     <div class="header-links">
                         <ul>
                             <li class="d-none d-xl-inline-block"><i class="fa-sharp fa-regular  fa-location-dot"></i>
-                                <span>Ha Noi, Viet Nam</span>
+                                <span>Ho Chi Minh City, Viet Nam</span>
                             </li>
                             <li class="d-none d-xl-inline-block"><i class="fa-regular fa-clock"></i>
                                 <span> 8.00 am - 7.00 pm</span>

@@ -1,8 +1,10 @@
 <div class="destination-area position-relative overflow-hidden ">
     <div class="container">
         <div class="title-area text-center">
-            <span class="sub-title">Top Destination</span>
-            <h2 class="sec-title">Popular Destination</h2>
+            <span class="sub-title">Top điểm đến</span>
+            <h2 class="sec-title">
+                Top điểm đến nổi tiếng trên toàn thế giới
+            </h2>
 
         </div>
         <div class="swiper th-slider destination-slider slider-drag-wrap" id="aboutSlider1"
