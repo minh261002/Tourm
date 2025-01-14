@@ -50,7 +50,8 @@ class AmenityDataTable extends BaseDataTable
             'action' => $this->view['action'],
             'status' => $this->view['status'],
             'created_at' => '{{formatDate($created_at)}}',
-            'image' => $this->view['image'],
+            'icon' => $this->view['image'],
+            'amenity_group' => '{{config("amenities.".$amenity_group)}}',
         ];
     }
 
@@ -66,7 +67,7 @@ class AmenityDataTable extends BaseDataTable
         $this->customRawColumns = [
             'action',
             'status',
-            'image',
+            'icon',
         ];
     }
 

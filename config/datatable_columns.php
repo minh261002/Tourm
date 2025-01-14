@@ -1,6 +1,43 @@
 <?php
 
 return [
+    'amenities' => [
+        'icon' => [
+            'title' => 'Icon',
+            'orderable' => false,
+            'exportable' => false,
+            'printable' => false,
+            'addClass' => 'text-center align-middle w-100px',
+        ],
+        'name' => [
+            'title' => 'Tên tiện ích',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'amenity_group' => [
+            'title' => 'Nhóm tiện ích',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'created_at' => [
+            'title' => 'Ngày tạo',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'action' => [
+            'title' => 'Thao tác',
+            'orderable' => false,
+            'exportable' => false,
+            'printable' => false,
+            'addClass' => 'text-center align-middle',
+        ],
+    ],
     'activities' => [
         'image' => [
             'title' => 'Ảnh',

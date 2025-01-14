@@ -17,8 +17,8 @@ class AmenityService implements AmenityServiceInterface
     public function store(Request $request)
     {
         $data = $request->validated();
-        if ($data['image'] == null) {
-            $data['image'] = '/admin/images/not-found.jpg';
+        if ($data['icon'] == null) {
+            $data['icon'] = '/admin/images/not-found.jpg';
         }
         return $this->repository->create($data);
     }
@@ -26,8 +26,8 @@ class AmenityService implements AmenityServiceInterface
     public function update(Request $request)
     {
         $data = $request->validated();
-        if ($data['image'] == null) {
-            $data['image'] = '/admin/images/not-found.jpg';
+        if ($data['icon'] == null) {
+            $data['icon'] = '/admin/images/not-found.jpg';
         }
         return $this->repository->update($data['id'], $data);
     }

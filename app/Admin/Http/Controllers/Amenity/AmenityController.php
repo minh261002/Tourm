@@ -33,7 +33,8 @@ class AmenityController extends Controller
             'active' => 'Đang hoạt động',
             'inactive' => 'Ngưng hoạt động',
         ];
-        return view('admin.amenity.create', compact('status'));
+        $amenityGroups = config('amenities');
+        return view('admin.amenity.create', compact('status', 'amenityGroups'));
     }
 
     public function store(AmenityRequest $request)
