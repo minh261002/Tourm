@@ -51,17 +51,17 @@ return [
             'orderable' => true,
             'exportable' => true,
             'printable' => true,
-            'addClass' => 'text-left align-middle',
+            'addClass' => 'text-center align-middle',
         ],
-        'position' => [
-            'title' => 'Vị trí',
+        'status' => [
+            'title' => 'Trạng thái',
             'orderable' => true,
             'exportable' => true,
             'printable' => true,
             'addClass' => 'text-center align-middle',
         ],
-        'status' => [
-            'title' => 'Trạng thái',
+        'created_at' => [
+            'title' => 'Ngày tạo',
             'orderable' => true,
             'exportable' => true,
             'printable' => true,

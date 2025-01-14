@@ -19,7 +19,7 @@ class CategoryRequest extends BaseRequest
     protected function methodPut()
     {
         return [
-            'id' => 'required|exists:destinations,id',
+            'id' => 'required|exists:categories,id',
             'name' => 'required',
             'description' => 'nullable',
             'image' => 'nullable',

@@ -17,12 +17,18 @@ class CategoryService implements CategoryServiceInterface
     public function store(Request $request)
     {
         $data = $request->validated();
+        if ($data['image'] == null) {
+            $data['image'] = '/admin/images/not-found.jpg';
+        }
         return $this->repository->create($data);
     }
 
     public function update(Request $request)
     {
         $data = $request->validated();
+        if ($data['image'] == null) {
+            $data['image'] = '/admin/images/not-found.jpg';
+        }
         return $this->repository->update($data['id'], $data);
     }
 }
