@@ -11,7 +11,7 @@ class DestinationRequest extends BaseRequest
         return [
             'name' => 'required',
             'desc' => 'nullable',
-            'image' => 'required',
+            'image' => 'nullable',
             'status' => 'required',
         ];
     }
@@ -22,7 +22,7 @@ class DestinationRequest extends BaseRequest
             'id' => 'required|exists:destinations,id',
             'name' => 'required',
             'desc' => 'nullable',
-            'image' => 'required',
+            'image' => 'nullable',
             'status' => 'required',
         ];
     }
@@ -31,7 +31,6 @@ class DestinationRequest extends BaseRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên điểm đến',
-            'image.required' => 'Vui lòng chọn ảnh',
             'status.required' => 'Vui lòng chọn trạng thái',
         ];
     }

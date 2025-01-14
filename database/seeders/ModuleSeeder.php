@@ -91,6 +91,13 @@ class ModuleSeeder extends Seeder
                 'status' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý hoạt động',
+                'description' => 'Quản lý hoạt động',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
 
@@ -360,6 +367,30 @@ class ModuleSeeder extends Seeder
                 'guard_name' => 'admin',
                 'module_id' => 11,
             ],
+            [
+                'title' => 'Xem hoạt động',
+                'name' => 'viewActivity',
+                'guard_name' => 'admin',
+                'module_id' => 12,
+            ],
+            [
+                'title' => 'Tạo hoạt động',
+                'name' => 'createActivity',
+                'guard_name' => 'admin',
+                'module_id' => 12,
+            ],
+            [
+                'title' => 'Sửa hoạt động',
+                'name' => 'editActivity',
+                'guard_name' => 'admin',
+                'module_id' => 12,
+            ],
+            [
+                'title' => 'Xóa hoạt động',
+                'name' => 'deleteActivity',
+                'guard_name' => 'admin',
+                'module_id' => 12,
+            ]
         ]);
 
         //Role
@@ -550,8 +581,23 @@ class ModuleSeeder extends Seeder
             [
                 'permission_id' => 44,
                 'role_id' => 1,
+            ],
+            [
+                'permission_id' => 45,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 46,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 47,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 48,
+                'role_id' => 1,
             ]
-
         ]);
 
         //Admin

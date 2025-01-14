@@ -18,8 +18,13 @@ class Activity extends Model
         return $query->where('status', 'active');
     }
 
-    public function destination()
+    public function destinations()
     {
-        return $this->hasMany(Destination::class, 'activity_id');
+        return $this->belongsToMany(Destination::class, 'activity_destinations', 'activity_id', 'destination_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_activity', 'activity_id', 'category_id');
     }
 }

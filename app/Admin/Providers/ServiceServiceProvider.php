@@ -18,6 +18,8 @@ class ServiceServiceProvider extends ServiceProvider
         'App\Admin\Services\Slider\SliderServiceInterface' => 'App\Admin\Services\Slider\SliderService',
         'App\Admin\Services\Slider\SliderItemServiceInterface' => 'App\Admin\Services\Slider\SliderItemService',
         'App\Admin\Services\Destination\DestinationServiceInterface' => 'App\Admin\Services\Destination\DestinationService',
+        'App\Admin\Services\Activity\ActivityServiceInterface' => 'App\Admin\Services\Activity\ActivityService',
+        'App\Admin\Services\Amenity\AmenityServiceInterface' => 'App\Admin\Services\Amenity\AmenityService',
     ];
     /**
      * Register any application services.

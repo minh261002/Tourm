@@ -2,6 +2,69 @@
 
 return [
     [
+        'active' => ['admin.amenity.*'],
+        'show' => ['admin.amenity.*'],
+        'title' => 'Quản lý tiện ích',
+        'icon' => 'ti ti-star fs-2',
+        'permission' => ['viewAmenity', 'createAmenity', 'editAmenity', 'deleteAmenity'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.amenity.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createAmenity'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.amenity.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewAmenity'
+            ]
+        ]
+    ],
+    [
+        'active' => ['admin.category.*'],
+        'show' => ['admin.category.*'],
+        'title' => 'Quản lý danh mục',
+        'icon' => 'ti ti-category-2 fs-2',
+        'permission' => ['viewCategory', 'createCategory', 'editCategory', 'deleteCategory'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.category.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createCategory'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.category.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewCategory'
+            ]
+        ]
+    ],
+    [
+        'active' => ['admin.activity.*'],
+        'show' => ['admin.activity.*'],
+        'title' => 'Quản lý hoạt động',
+        'icon' => 'ti ti-rocket fs-2',
+        'permission' => ['viewActivity', 'createActivity', 'editActivity', 'deleteActivity'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.activity.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createActivity'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.activity.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewActivity'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.destination.*'],
         'show' => ['admin.destination.*'],
         'title' => 'Quản lý điểm đến',

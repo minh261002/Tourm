@@ -114,7 +114,7 @@
                             </div>
 
                             <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <a href="{{ route('admin.module.index') }}" class="btn btn-secondary w-100">
+                                <a href="{{ route('admin.destination.index') }}" class="btn btn-secondary w-100">
                                     Quay lại
                                 </a>
 

@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Admin\Services\Activity;
+
+use Illuminate\Http\Request;
+
+interface ActivityServiceInterface
+{
+    public function store(Request $request);
+    public function update(Request $request);
+}

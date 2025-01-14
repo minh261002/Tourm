@@ -68,6 +68,6 @@ class DestinationController extends Controller
     public function delete(int $id)
     {
         $this->repository->delete($id);
-        return response()->json(['status' => 'success', 'message' => 'Xóa module thành công']);
+        return response()->json(['status' => 'success', 'message' => 'Xóa điểm đến thành công']);
     }
 }
