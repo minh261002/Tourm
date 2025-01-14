@@ -20,6 +20,10 @@ return new class extends Migration {
             $table->text('gallery')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('address');
+            $table->integer('price');
+            $table->integer('sale_price')->nullable();
+            $table->date('date');
+            $table->time('time');
             $table->text('tags')->nullable();
             $table->timestamps();
         });
