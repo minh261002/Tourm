@@ -18,6 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
         'App\Admin\Repositories\Slider\SliderRepositoryInterface' => 'App\Admin\Repositories\Slider\SliderRepository',
         'App\Admin\Repositories\Slider\SliderItemRepositoryInterface' => 'App\Admin\Repositories\Slider\SliderItemRepository',
         'App\Admin\Repositories\Destination\DestinationRepositoryInterface' => 'App\Admin\Repositories\Destination\DestinationRepository',
+        'App\Admin\Repositories\Activity\ActivityRepositoryInterface' => 'App\Admin\Repositories\Activity\ActivityRepository',
     ];
     /**
      * Register any application services.

@@ -23,6 +23,27 @@ return [
         ]
     ],
     [
+        'active' => ['admin.activity.*'],
+        'show' => ['admin.activity.*'],
+        'title' => 'Quản lý hoạt động',
+        'icon' => 'ti ti-rocket fs-2',
+        'permission' => ['viewActivity', 'createActivity', 'editActivity', 'deleteActivity'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.activity.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createActivity'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.activity.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewActivity'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.destination.*'],
         'show' => ['admin.destination.*'],
         'title' => 'Quản lý điểm đến',
