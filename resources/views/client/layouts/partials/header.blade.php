@@ -41,68 +41,24 @@
                     <div class="col-auto me-xl-auto">
                         <nav class="main-menu d-none d-xl-inline-block">
                             <ul>
-                                <li class="menu-item-has-children mega-menu-wrap">
-                                    <a class="active" href="{{ route('home') }}">Home</a>
+                                <li>
+                                    <a class="active" href="{{ route('home') }}">Trang chủ</a>
                                 </li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Destination</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="destination.html">Destination</a></li>
-                                        <li><a href="destination-details.html">Destination Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Service</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="service.html">Services</a></li>
-                                        <li><a href="service-details.html">Service Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Activities</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="activities.html">activities</a></li>
-                                        <li><a href="activities-details.html">activities Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Shop</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="tour.html">Our Tour</a></li>
-                                        <li><a href="tour-details.html">Tour Details</a></li>
-                                        <li><a href="resort.html">Resort page</a></li>
-                                        <li><a href="resort-details.html">Resort Details</a></li>
-                                        <li><a href="tour-details.html">Tour Details</a></li>
-                                        <li><a href="tour-guide.html">Tour Guider</a></li>
-                                        <li><a href="tour-guider-details.html">Tour Guider Details</a></li>
-                                        <li><a href="faq.html">Faq Page</a></li>
-                                        <li><a href="price.html">Price Package</a></li>
-                                        <li><a href="error.html">Error Page</a></li>
-                                    </ul>
-
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
+                                <li><a href="about.html">Giới thiệu</a></li>
+                                <li>
+                                    <a href="#">Điểm đến</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact us</a>
+                                    <a href="#">Tour Du lịch</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hoạt động giải trí</a>
+                                </li>
+                                <li>
+                                    <a href="#">Dịch vụ lưu trú</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Liên Hệ</a>
                                 </li>
                             </ul>
                         </nav>
@@ -111,8 +67,10 @@
                     </div>
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
-                            <a href="contact.html" class="th-btn style3 th-icon">Book Now</a>
-
+                            <a href="contact.html" class="th-btn style3 th-icon">
+                                <i class="far fa-user"></i>
+                                Tài khoản
+                            </a>
                         </div>
                     </div>
                 </div>

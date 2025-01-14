@@ -30,6 +30,7 @@
     @include('client.home.components.about')
     @include('client.home.components.services')
     @include('client.home.components.gallery')
+    @include('client.home.components.testimonial')
     @include('client.home.components.counter')
     @include('client.home.components.brand')
     @include('client.home.components.blog')
