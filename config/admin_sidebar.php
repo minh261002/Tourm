@@ -2,6 +2,27 @@
 
 return [
     [
+        'active' => ['admin.amenity.*'],
+        'show' => ['admin.amenity.*'],
+        'title' => 'Quản lý tiện ích',
+        'icon' => 'ti ti-star fs-2',
+        'permission' => ['viewAmenity', 'createAmenity', 'editAmenity', 'deleteAmenity'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.amenity.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createAmenity'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.amenity.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewAmenity'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.category.*'],
         'show' => ['admin.category.*'],
         'title' => 'Quản lý danh mục',

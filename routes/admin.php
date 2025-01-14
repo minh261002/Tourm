@@ -2,6 +2,7 @@
 
 use App\Admin\Http\Controllers\Activity\ActivityController;
 use App\Admin\Http\Controllers\Admin\AdminController;
+use App\Admin\Http\Controllers\Amenity\AmenityController;
 use App\Admin\Http\Controllers\Auth\AuthController;
 use App\Admin\Http\Controllers\Category\CategoryController;
 use App\Admin\Http\Controllers\Dashboard\DashboardController;
@@ -265,6 +266,28 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
             Route::middleware(['permission:deleteActivity'])->group(function () {
                 Route::delete('/delete/{id}', [ActivityController::class, 'delete'])->name('delete');
+            });
+        });
+
+        //Amenity
+        Route::prefix('amenity')->as('amenity.')->group(function () {
+            Route::middleware(['permission:viewAmenity'])->group(function () {
+                Route::get('/', [AmenityController::class, 'index'])->name('index');
+            });
+
+            Route::middleware(['permission:createAmenity'])->group(function () {
+                Route::get('/create', [AmenityController::class, 'create'])->name('create');
+                Route::post('/store', [AmenityController::class, 'store'])->name('store');
+            });
+
+            Route::middleware(['permission:editAmenity'])->group(function () {
+                Route::get('/edit/{id}', [AmenityController::class, 'edit'])->name('edit');
+                Route::put('/update', [AmenityController::class, 'update'])->name('update');
+                Route::patch('/update-status', [AmenityController::class, 'updateStatus'])->name('update.status');
+            });
+
+            Route::middleware(['permission:deleteAmenity'])->group(function () {
+                Route::delete('/delete/{id}', [AmenityController::class, 'delete'])->name('delete');
             });
         });
     });
