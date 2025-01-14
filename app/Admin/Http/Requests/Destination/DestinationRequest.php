@@ -13,6 +13,7 @@ class DestinationRequest extends BaseRequest
             'desc' => 'nullable',
             'image' => 'nullable',
             'status' => 'required',
+            'is_home' => 'required',
         ];
     }
 
@@ -24,6 +25,7 @@ class DestinationRequest extends BaseRequest
             'desc' => 'nullable',
             'image' => 'nullable',
             'status' => 'required',
+            'is_home' => 'required',
         ];
     }
 

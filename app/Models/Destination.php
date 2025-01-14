@@ -14,6 +14,10 @@ class Destination extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'is_home' => 'boolean'
+    ];
+
     public function scopeActive($query)
     {
         return $query->where('status', 'active');

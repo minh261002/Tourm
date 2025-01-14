@@ -11,7 +11,8 @@
                         </div>
                         <div class="col-lg-7">
                             <form class="newsletter-form style2">
-                                <input class="form-control " type="email" placeholder="Enter Email" required="">
+                                <input class="form-control " type="email" placeholder="Nhập email của bạn"
+                                    required="">
                                 <button type="submit" class="th-btn style1">Đăng ký <img
                                         src="{{ asset('assets/img/icon/plane2.svg') }}" alt=""></button>
                             </form>

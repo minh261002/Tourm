@@ -91,6 +91,27 @@
                         </div>
 
                         <div class="card mt-3">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    Hiển thị trang chủ
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <select class="form-select" name="is_home" id="is_home">
+                                        <option value="0">
+                                            Không hiển thị
+                                        </option>
+                                        <option value="1">
+                                            Hiển thị
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
                             <div class="card-header d-flex align-items-center justify-content-between">
                                 <h2 class="card-title mb-0">Ảnh đại diện</h2>
                             </div>

@@ -4,12 +4,14 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-7">
                     <div class="title-area mb-md-0">
-                        <span class="sub-title">Blog and Article</span>
-                        <h2 class="sec-title">News & Articles From Tourm</h2>
+                        <span class="sub-title">Bài viết</span>
+                        <h2 class="sec-title">
+                            Bài viết nổi bật
+                        </h2>
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="blog.html" class="th-btn style4 th-icon">See More Articles</a>
+                    <a href="blog.html" class="th-btn style4 th-icon">Xem thêm</a>
                 </div>
             </div>
         </div>

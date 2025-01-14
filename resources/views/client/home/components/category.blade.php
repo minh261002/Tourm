@@ -1,7 +1,8 @@
 <section class="category-area bg-top-center" data-bg-src="assets/img/bg/category_bg_1.png">
     <div class="container th-container">
         <div class="title-area text-center">
-            <span class="sub-title">Top hoạt động</span>
+            <span class="sub-title">Best Place For You
+            </span>
             <h2 class="sec-title">
                 Top các hoạt động được yêu thích
             </h2>
