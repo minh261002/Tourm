@@ -68,9 +68,20 @@ class PropertyController extends Controller
             'active' => 'Đang hoạt động',
             'inactive' => 'Ngưng hoạt động',
         ];
-        $amenity = $this->repository->findOrFail($id);
+        $destinations = $this->destinationRepository->getByQueryBuilder([
+            'status' => 'active'
+        ])->pluck('name', 'id')->toArray();
+        $property = $this->repository->findOrFail($id);
         $amenityGroups = config('amenities');
-        return view('admin.property.edit', compact('amenity', 'status', 'amenityGroups'));
+        $amenities = [];
+
+        foreach ($amenityGroups as $group => $name) {
+            $amenities[$name] = $this->amenityRepository->getByQueryBuilder([
+                'amenity_group' => $group
+            ])->get();
+        }
+
+        return view('admin.property.edit', compact('property', 'status', 'amenities', 'destinations'));
     }
 
     public function update(PropertyRequest $request)

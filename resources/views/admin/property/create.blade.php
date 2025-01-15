@@ -75,13 +75,13 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                        @include('admin.components.pick-address', [
-                                            'label' => 'Địa chỉ cụ thể',
-                                            'name' => 'address',
-                                            'value' => old('address'),
-                                        ])
-                                        <input type="hidden" name="lat" value="{{ old('lat') }}">
-                                        <input type="hidden" name="lng" value="{{ old('lng') }}">
+                                    @include('admin.components.pick-address', [
+                                        'label' => 'Địa chỉ cụ thể',
+                                        'name' => 'address',
+                                        'value' => old('address'),
+                                    ])
+                                    <input type="hidden" name="lat" value="{{ old('lat') }}">
+                                    <input type="hidden" name="lng" value="{{ old('lng') }}">
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
@@ -128,54 +128,53 @@
 
                                 <div class="col-12 mb-3">
                                     <label for="amenities" class="form-label">Tiện ích</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="checkAllAmenities">
-                                            <label class="form-check-label" for="checkAllAmenities">
-                                                Chọn tất cả tiện ích
-                                            </label>
-                                        </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkAllAmenities">
+                                        <label class="form-check-label" for="checkAllAmenities">
+                                            Chọn tất cả tiện ích
+                                        </label>
+                                    </div>
 
-                                        <div class="row">
-                                            @foreach ($amenities as $groupName => $collection)
-                                                <div class="col-md-3 mb-3">
-                                                    <div class="card">
-                                                        <div class="card-header pb-0">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input group-check-all"
-                                                                    type="checkbox"
-                                                                    id="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}"
-                                                                    data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}">
-                                                                <label class="form-check-label"
-                                                                    for="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}">
-                                                                    {{ $groupName }}
-                                                                </label>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="card-body">
-                                                            @if ($collection->isNotEmpty())
-                                                                @foreach ($collection as $amenity)
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input amenity-check"
-                                                                            type="checkbox"
-                                                                            id="amenityCheck{{ $amenity->id }}"
-                                                                            data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}"
-                                                                            name="amenities[]"
-                                                                            value="{{ $amenity->id }}">
-                                                                        <label class="form-check-label"
-                                                                            for="amenityCheck{{ $amenity->id }}">
-                                                                            {{ $amenity->name }}
-                                                                        </label>
-                                                                    </div>
-                                                                @endforeach
-                                                            @else
-                                                                <p>Không có dữ liệu.</p>
-                                                            @endif
+                                    <div class="row">
+                                        @foreach ($amenities as $groupName => $collection)
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card">
+                                                    <div class="card-header pb-0">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input group-check-all"
+                                                                type="checkbox"
+                                                                id="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}"
+                                                                data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}">
+                                                            <label class="form-check-label"
+                                                                for="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}">
+                                                                {{ $groupName }}
+                                                            </label>
                                                         </div>
                                                     </div>
+
+                                                    <div class="card-body">
+                                                        @if ($collection->isNotEmpty())
+                                                            @foreach ($collection as $amenity)
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input amenity-check"
+                                                                        type="checkbox"
+                                                                        id="amenityCheck{{ $amenity->id }}"
+                                                                        data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}"
+                                                                        name="amenities[]" value="{{ $amenity->id }}">
+                                                                    <label class="form-check-label"
+                                                                        for="amenityCheck{{ $amenity->id }}">
+                                                                        {{ $amenity->name }}
+                                                                    </label>
+                                                                </div>
+                                                            @endforeach
+                                                        @else
+                                                            <p>Không có dữ liệu.</p>
+                                                        @endif
+                                                    </div>
                                                 </div>
-                                            @endforeach
-                                        </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
 
                                 </div>
 
@@ -316,22 +315,21 @@
             width: "100%",
         });
 
-        document.getElementById('checkAllAmenities').addEventListener('change', function () {
-    const isChecked = this.checked;
-    document.querySelectorAll('.form-check-input').forEach(input => {
-        input.checked = isChecked;
-    });
-});
-
-document.querySelectorAll('.group-check-all').forEach(groupCheckbox => {
-    groupCheckbox.addEventListener('change', function () {
-        const groupId = this.getAttribute('data-group-id');
-        const isChecked = this.checked;
-        document.querySelectorAll(`.amenity-check[data-group-id="${groupId}"]`).forEach(input => {
-            input.checked = isChecked;
+        document.getElementById('checkAllAmenities').addEventListener('change', function() {
+            const isChecked = this.checked;
+            document.querySelectorAll('.form-check-input').forEach(input => {
+                input.checked = isChecked;
+            });
         });
-    });
-});
 
+        document.querySelectorAll('.group-check-all').forEach(groupCheckbox => {
+            groupCheckbox.addEventListener('change', function() {
+                const groupId = this.getAttribute('data-group-id');
+                const isChecked = this.checked;
+                document.querySelectorAll(`.amenity-check[data-group-id="${groupId}"]`).forEach(input => {
+                    input.checked = isChecked;
+                });
+            });
+        });
     </script>
 @endpush
