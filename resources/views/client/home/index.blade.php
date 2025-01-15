@@ -5,7 +5,6 @@
         <div class="preloader-inner">
             <img src="assets/img/logo3.svg" alt="">
         </div>
-
         <div id="loader" class="th-preloader">
             <div class="animation-preloader">
                 <div class="txt-loading">
@@ -21,7 +20,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     @include('client.home.components.hero')
     @include('client.home.components.booking')

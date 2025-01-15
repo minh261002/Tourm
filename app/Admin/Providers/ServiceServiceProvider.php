@@ -20,6 +20,7 @@ class ServiceServiceProvider extends ServiceProvider
         'App\Admin\Services\Destination\DestinationServiceInterface' => 'App\Admin\Services\Destination\DestinationService',
         'App\Admin\Services\Activity\ActivityServiceInterface' => 'App\Admin\Services\Activity\ActivityService',
         'App\Admin\Services\Amenity\AmenityServiceInterface' => 'App\Admin\Services\Amenity\AmenityService',
+        'App\Admin\Services\Property\PropertyServiceInterface' => 'App\Admin\Services\Property\PropertyService',
     ];
     /**
      * Register any application services.

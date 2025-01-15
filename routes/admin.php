@@ -11,6 +11,7 @@ use App\Admin\Http\Controllers\Module\ModuleController;
 use App\Admin\Http\Controllers\Permission\PermissionController;
 use App\Admin\Http\Controllers\Post\PostCatalogueController;
 use App\Admin\Http\Controllers\Post\PostController;
+use App\Admin\Http\Controllers\Property\PropertyController;
 use App\Admin\Http\Controllers\Role\RoleController;
 use App\Admin\Http\Controllers\Slider\SliderController;
 use Illuminate\Support\Facades\Route;
