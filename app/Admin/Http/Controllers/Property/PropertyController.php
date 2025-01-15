@@ -3,6 +3,7 @@
 namespace App\Admin\Http\Controllers\Property;
 
 use App\Admin\DataTables\Property\PropertyDataTable;
+use App\Admin\Repositories\Amenity\AmenityRepositoryInterface;
 use App\Admin\Repositories\Destination\DestinationRepositoryInterface;
 use App\Admin\Repositories\Property\PropertyRepositoryInterface;
 use App\Admin\Services\Property\PropertyServiceInterface;
@@ -14,15 +15,18 @@ class PropertyController extends Controller
 {
     protected $repository;
     protected $destinationRepository;
+    protected $amenityRepository;
     protected $service;
 
     public function __construct(
         PropertyRepositoryInterface $repository,
         DestinationRepositoryInterface $destinationRepository,
+        AmenityRepositoryInterface $amenityRepository,
         PropertyServiceInterface $service
     ) {
         $this->repository = $repository;
         $this->destinationRepository = $destinationRepository;
+        $this->amenityRepository = $amenityRepository;
         $this->service = $service;
     }
 
@@ -40,13 +44,22 @@ class PropertyController extends Controller
         $destinations = $this->destinationRepository->getByQueryBuilder([
             'status' => 'active'
         ])->pluck('name', 'id')->toArray();
-        return view('admin.property.create', compact('status', 'destinations'));
+        $amenityGroups = config('amenities');
+        $amenities = [];
+
+        foreach ($amenityGroups as $group => $name) {
+            $amenities[$name] = $this->amenityRepository->getByQueryBuilder([
+                'amenity_group' => $group
+            ])->get();
+        }
+
+        return view('admin.property.create', compact('status', 'destinations', 'amenities'));
     }
 
     public function store(PropertyRequest $request)
     {
         $this->service->store($request);
-        return redirect()->route('admin.amenity.index')->with('success', 'Thêm chỗ ở mới thành công');
+        return redirect()->route('admin.property.index')->with('success', 'Thêm chỗ ở mới thành công');
     }
 
     public function edit(int $id)

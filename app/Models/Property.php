@@ -21,6 +21,11 @@ class Property extends Model
 
     public function destination()
     {
-        return $this->hasMany(Destination::class, 'property_id');
+        return $this->belongsTo(Destination::class, 'destination_id');
+    }
+
+    public function amenities()
+    {
+        return $this->belongsToMany(Amenity::class, 'property_amenities', 'property_id', 'amenity_id');
     }
 }

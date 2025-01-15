@@ -11,17 +11,23 @@ class PropertyRequest extends BaseRequest
 
         return [
             'name' => 'required',
-            'destination_ids' => 'required',
+            'destination_id' => 'required',
+            'amenities' => 'required',
             'address' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
             'price' => 'required',
             'sale_price' => 'nullable',
-            'date' => 'required',
-            'time' => 'required',
             'status' => 'required',
-            'category_id' => 'required',
             'image' => 'nullable',
             'gallery' => 'nullable',
-        ];
+            'desc' => 'nullable',
+            'area' => 'required',
+            'bedroom' => 'required',
+            'bathroom' => 'required',
+            'adults' => 'required',
+            'children' => 'required',
+         ];
     }
 
     protected function methodPut()
@@ -29,30 +35,41 @@ class PropertyRequest extends BaseRequest
         return [
             'id' => 'required|exists:properties,id',
             'name' => 'required',
-            'destination_ids' => 'required',
+            'destination_id' => 'required',
+            'amenities' => 'required',
             'address' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
             'price' => 'required',
             'sale_price' => 'nullable',
-            'date' => 'required',
-            'time' => 'required',
             'status' => 'required',
-            'category_id' => 'required',
             'image' => 'nullable',
             'gallery' => 'nullable',
+            'desc' => 'nullable',
+            'area' => 'required',
+            'bedroom' => 'required',
+            'bathroom' => 'required',
+            'adults' => 'required',
+            'children' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Tên hoạt động không được để trống',
-            'destination_ids.required' => 'Địa điểm không được để trống',
+            'name.required' => 'Tên không được để trống',
+            'destination_id.required' => 'Địa điểm không được để trống',
+            'amenities.required' => 'Tiện ích không được để trống',
             'address.required' => 'Địa chỉ không được để trống',
+            'lat.required' => 'Vĩ độ không được để trống',
+            'lng.required' => 'Kinh độ không được để trống',
             'price.required' => 'Giá không được để trống',
-            'date.required' => 'Ngày không được để trống',
-            'time.required' => 'Thời gian không được để trống',
             'status.required' => 'Trạng thái không được để trống',
-            'category_id.required' => 'Danh mục không được để trống',
+            'area.required' => 'Diện tích không được để trống',
+            'bedroom.required' => 'Số phòng ngủ không được để trống',
+            'bathroom.required' => 'Số phòng tắm không được để trống',
+            'adults.required' => 'Số người lớn không được để trống',
+            'children.required' => 'Số trẻ em không được để trống',
         ];
     }
 }

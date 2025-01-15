@@ -65,7 +65,7 @@
                                     </label>
 
                                     <select class="form-select select2" name="destination_id" id="destination_id">
-                                        <option value="">Chọn điểm đến</option>
+                                        <option value="" class="form-label">Chọn điểm đến</option>
                                         @foreach ($destinations as $key => $value)
                                             <option value="{{ $key }}">
                                                 {{ $value }}
@@ -85,15 +85,98 @@
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
-                                    <label for="price">Giá</label>
+                                    <label for="price" class="form-label">Giá</label>
                                     <input type="text" class="form-control" name="price" id="price"
                                         value="{{ old('price') }}">
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
-                                    <label for="sale_price">Giảm giá</label>
+                                    <label for="sale_price" class="form-label">Giảm giá</label>
                                     <input type="text" class="form-control" name="sale_price" id="sale_price"
                                         value="{{ old('sale_price') }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="area" class="form-label">Diện tích</label>
+                                    <input type="text" class="form-control" name="area" id="area"
+                                        value="{{ old('area') }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="bedroom" class="form-label">Số phòng ngủ</label>
+                                    <input type="text" class="form-control" name="bedroom" id="bedroom"
+                                        value="{{ old('bedroom') }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="bathroom" class="form-label">Số phòng tắm</label>
+                                    <input type="text" class="form-control" name="bathroom" id="bathroom"
+                                        value="{{ old('bathroom') }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="adults" class="form-label">Số người lớn</label>
+                                    <input type="text" class="form-control" name="adults" id="adults"
+                                        value="{{ old('adults') }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="children" class="form-label">Số trẻ em</label>
+                                    <input type="text" class="form-control" name="children" id="children"
+                                        value="{{ old('children') }}">
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <label for="amenities" class="form-label">Tiện ích</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkAllAmenities">
+                                            <label class="form-check-label" for="checkAllAmenities">
+                                                Chọn tất cả tiện ích
+                                            </label>
+                                        </div>
+
+                                        <div class="row">
+                                            @foreach ($amenities as $groupName => $collection)
+                                                <div class="col-md-3 mb-3">
+                                                    <div class="card">
+                                                        <div class="card-header pb-0">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input group-check-all"
+                                                                    type="checkbox"
+                                                                    id="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}"
+                                                                    data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}">
+                                                                <label class="form-check-label"
+                                                                    for="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}">
+                                                                    {{ $groupName }}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-body">
+                                                            @if ($collection->isNotEmpty())
+                                                                @foreach ($collection as $amenity)
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input amenity-check"
+                                                                            type="checkbox"
+                                                                            id="amenityCheck{{ $amenity->id }}"
+                                                                            data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}"
+                                                                            name="amenities[]"
+                                                                            value="{{ $amenity->id }}">
+                                                                        <label class="form-check-label"
+                                                                            for="amenityCheck{{ $amenity->id }}">
+                                                                            {{ $amenity->name }}
+                                                                        </label>
+                                                                    </div>
+                                                                @endforeach
+                                                            @else
+                                                                <p>Không có dữ liệu.</p>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
                                 </div>
 
                                 <div class="form-group">
@@ -232,5 +315,23 @@
             theme: 'bootstrap-5',
             width: "100%",
         });
+
+        document.getElementById('checkAllAmenities').addEventListener('change', function () {
+    const isChecked = this.checked;
+    document.querySelectorAll('.form-check-input').forEach(input => {
+        input.checked = isChecked;
+    });
+});
+
+document.querySelectorAll('.group-check-all').forEach(groupCheckbox => {
+    groupCheckbox.addEventListener('change', function () {
+        const groupId = this.getAttribute('data-group-id');
+        const isChecked = this.checked;
+        document.querySelectorAll(`.amenity-check[data-group-id="${groupId}"]`).forEach(input => {
+            input.checked = isChecked;
+        });
+    });
+});
+
     </script>
 @endpush

@@ -16,7 +16,7 @@ return [
             'printable' => true,
             'addClass' => 'text-center align-middle',
         ],
-        'destination' => [
+        'destination_id' => [
             'title' => 'Điểm đến',
             'orderable' => true,
             'exportable' => true,

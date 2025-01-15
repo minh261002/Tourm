@@ -93,7 +93,7 @@ $config['resourceTypes'][] = array(
     'name' => 'Files',
     'directory' => 'files',
     'maxSize' => 0,
-    'allowedExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,webp,wma,wmv,xls,xlsx,zip',
+    'allowedExtensions' => 'avif,7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,webp,wma,wmv,xls,xlsx,zip',
     'deniedExtensions' => '',
     'backend' => 'default'
 );
@@ -102,7 +102,7 @@ $config['resourceTypes'][] = array(
     'name' => 'Images',
     'directory' => 'images',
     'maxSize' => 0,
-    'allowedExtensions' => 'bmp,gif,jpeg,jpg,png,webp,svg',
+    'allowedExtensions' => 'bmp,gif,jpeg,jpg,png,webp,svg,avif',
     'deniedExtensions' => '',
     'backend' => 'default'
 );

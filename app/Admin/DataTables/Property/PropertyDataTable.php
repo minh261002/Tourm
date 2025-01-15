@@ -22,6 +22,7 @@ class PropertyDataTable extends BaseDataTable
             'action' => 'admin.property.datatable.action',
             'status' => 'admin.property.datatable.status',
             'image' => 'admin.property.datatable.image',
+            'destination' => 'admin.property.datatable.destination',
         ];
     }
     public function query()
@@ -57,6 +58,9 @@ class PropertyDataTable extends BaseDataTable
             'status' => $this->view['status'],
             'created_at' => '{{formatDate($created_at)}}',
             'image' => $this->view['image'],
+            'destination_id' => function($property) {
+                return $property->destination->name;
+            },
         ];
     }
 
@@ -73,13 +77,18 @@ class PropertyDataTable extends BaseDataTable
             'action',
             'status',
             'image',
+            'destination',
         ];
     }
 
     public function setCustomFilterColumns(): void
     {
         $this->customFilterColumns = [
-            //
+            'destination_id' => function ($query, $keyword) {
+                return $query->whereHas('destination', function ($query) use ($keyword) {
+                    return $query->where('name', 'like', '%' . $keyword . '%');
+                });
+            },
         ];
     }
 }
