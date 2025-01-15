@@ -5,10 +5,11 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="title-area text-center">
                     <span class="sub-title">Best Place For You</span>
-                    <h2 class="sec-title">Most Popular Tour</h2>
-                    <p class="sec-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
+                    <h2 class="sec-title">Nơi lưu trú dành cho bạn</h2>
+                    <p class="sec-text">
+                        Chúng tôi cung cấp các dịch vụ lưu trú, ẩm thực, vận chuyển và hướng dẫn viên chuyên nghiệp để
+                        giúp bạn có một chuyến đi tuyệt vời nhất.
+                    </p>
                 </div>
             </div>
         </div>

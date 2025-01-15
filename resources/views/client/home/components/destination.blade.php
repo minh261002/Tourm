@@ -4,7 +4,7 @@
             <span class="sub-title">Best Place For You
             </span>
             <h2 class="sec-title">
-                Top điểm đến nổi tiếng trên toàn thế giới
+                Top điểm đến nổi bật
             </h2>
 
         </div>
