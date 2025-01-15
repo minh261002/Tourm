@@ -31,4 +31,9 @@ class HomeController extends Controller
         ])->get();
         return view('client.home.index', compact('categories', 'destinations'));
     }
+
+    public function about()
+    {
+        return view('client.pages.about');
+    }
 }

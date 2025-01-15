@@ -27,12 +27,14 @@
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/lelinh014756/fui-toast-js@master/assets/css/toast@1.0.1/fuiToast.min.css">
     @stack('styles')
 </head>
 
 <body>
 
+    <div id="fui-toast"></div>
     @include('client.layouts.partials.partials')
 
     @include('client.layouts.partials.mobile-menu')
@@ -80,6 +82,30 @@
 
     <!-- Main Js File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/lelinh014756/fui-toast-js@master/assets/js/toast@1.0.1/fuiToast.min.js"></script>
+
+    @if (session('success'))
+        <script>
+            FuiToast.success('{{ session('success') }}');
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            FuiToast.error('{{ session('error') }}');
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            @foreach ($errors->all() as $error)
+                FuiToast.error('{{ $error }}');
+            @endforeach
+        </script>
+    @endif
+
+    @stack('scripts')
 </body>
 
 </html>
