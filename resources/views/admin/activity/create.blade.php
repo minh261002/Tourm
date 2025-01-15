@@ -64,8 +64,8 @@
                                         Thuộc điểm đến
                                     </label>
 
-                                    <select class="form-select select2" name="destination_ids[]" id="destination_ids"
-                                        multiple>
+                                    <select class="form-select select2" name="destination_id" id="destination_id">
+                                        <option value="">Chọn điểm đến</option>
                                         @foreach ($destinations as $key => $value)
                                             <option value="{{ $key }}">
                                                 {{ $value }}
