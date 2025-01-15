@@ -28,13 +28,7 @@ class ActivityService implements ActivityServiceInterface
             $data['gallery'] = json_encode($data['gallery']);
         }
 
-        $destinations = $data['destination_ids'];
-        unset($data['destination_ids']);
-
-        $activity = $this->repository->create($data);
-        $activity->destinations()->sync($destinations);
-
-        return $activity;
+        return $this->repository->create($data);
     }
 
     public function update(Request $request)
@@ -50,12 +44,6 @@ class ActivityService implements ActivityServiceInterface
             $data['gallery'] = json_encode($data['gallery']);
         }
 
-        $destinations = $data['destination_ids'];
-        unset($data['destination_ids']);
-
-        $activity = $this->repository->find($data['id']);
-        $activity->destinations()->sync($destinations);
-
-        return $activity->update($data);
+        return $this->repository->update($data['id'], $data);
     }
 }

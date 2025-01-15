@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('destination_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('desc')->nullable();
@@ -20,6 +21,8 @@ return new class extends Migration {
             $table->text('gallery')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('address');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->integer('price');
             $table->integer('sale_price')->nullable();
             $table->date('date');

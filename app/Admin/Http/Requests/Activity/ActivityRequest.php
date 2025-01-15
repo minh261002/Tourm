@@ -11,8 +11,10 @@ class ActivityRequest extends BaseRequest
 
         return [
             'name' => 'required',
-            'destination_ids' => 'required',
+            'destination_id' => 'required',
             'address' => 'required',
+            'lat' => 'nullable',
+            'lng' => 'nullable',
             'price' => 'required',
             'sale_price' => 'nullable',
             'date' => 'required',
@@ -29,8 +31,10 @@ class ActivityRequest extends BaseRequest
         return [
             'id' => 'required|exists:activities,id',
             'name' => 'required',
-            'destination_ids' => 'required',
+            'destination_id' => 'required',
             'address' => 'required',
+            'lat' => 'nullable',
+            'lng' => 'nullable',
             'price' => 'required',
             'sale_price' => 'nullable',
             'date' => 'required',

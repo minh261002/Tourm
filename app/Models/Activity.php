@@ -20,7 +20,7 @@ class Activity extends Model
 
     public function destinations()
     {
-        return $this->belongsToMany(Destination::class, 'activity_destinations', 'activity_id', 'destination_id');
+        return $this->belongsTo(Destination::class, 'destination_id');
     }
 
     public function categories()

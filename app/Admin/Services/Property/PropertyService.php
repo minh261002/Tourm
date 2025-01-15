@@ -20,7 +20,19 @@ class PropertyService implements PropertyServiceInterface
         if ($data['image'] == null) {
             $data['image'] = '/admin/images/not-found.jpg';
         }
-        return $this->repository->create($data);
+        if (!isset($data['gallery'])) {
+            $data['gallery'] = json_encode([]);
+        } else {
+            $data['gallery'] = json_encode($data['gallery']);
+        }
+
+        $amenities = $data['amenities'];
+        unset($data['amenities']);
+
+        $property = $this->repository->create($data);
+
+        $property->amenities()->sync($amenities);
+        return $property;
     }
 
     public function update(Request $request)
@@ -29,6 +41,19 @@ class PropertyService implements PropertyServiceInterface
         if ($data['image'] == null) {
             $data['image'] = '/admin/images/not-found.jpg';
         }
-        return $this->repository->update($data['id'], $data);
+
+        if (!isset($data['gallery'])) {
+            $data['gallery'] = json_encode([]);
+        } else {
+            $data['gallery'] = json_encode($data['gallery']);
+        }
+
+        $amenities = $data['amenities'];
+        unset($data['amenities']);
+
+        $property = $this->repository->update($data['id'], $data);
+
+        $property->amenities()->sync($amenities);
+        return $property;
     }
 }

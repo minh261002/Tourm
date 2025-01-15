@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản lý hoạt động
+                        Quản lý chỗ ở
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -23,8 +23,8 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('admin.activity.index') }}">
-                                    Quản lý hoạt động
+                                <a href="{{ route('admin.property.index') }}">
+                                    Quản lý chỗ ở
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
@@ -38,29 +38,29 @@
 
         <!-- Page body -->
         <div class="page-body">
-            <form action="{{ route('admin.activity.update') }}" method="post">
+            <form action="{{ route('admin.property.update') }}" method="post">
                 @csrf
                 @method('PUT')
 
-                <input type="hidden" name="id" value="{{ $activity->id }}">
+                <input type="hidden" name="id" value="{{ $property->id }}">
 
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Thông tin hoạt động
+                                    Thông tin chỗ ở
                                 </h3>
                             </div>
 
                             <div class="row card-body">
                                 <div class="form-group mb-3">
                                     <label for="name" class="form-label">
-                                        Tên hoạt động
+                                        Tên chỗ ở
                                     </label>
 
                                     <input type="text" class="form-control" name="name" id="name"
-                                        value="{{ $activity->name }}">
+                                        value="{{ $property->name }}">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -68,11 +68,11 @@
                                         Thuộc điểm đến
                                     </label>
 
-                                    <select class="form-select select2" name="destination_ids[]" id="destination_ids"
-                                        multiple>
+                                    <select class="form-select select2" name="destination_id" id="destination_id">
+                                        <option value="" class="form-label">Chọn điểm đến</option>
                                         @foreach ($destinations as $key => $value)
                                             <option value="{{ $key }}"
-                                                @if (in_array($key, $destination_ids)) selected @endif>
+                                                {{ $property->destination_id == $key ? 'selected' : '' }}>
                                                 {{ $value }}
                                             </option>
                                         @endforeach
@@ -80,45 +80,114 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="address" class="form-label">
-                                        Địa chỉ cụ thể
-                                    </label>
-
-                                    <input type="text" class="form-control" name="address" id="address"
-                                        value="{{ $activity->address }}">
+                                    @include('admin.components.pick-address', [
+                                        'label' => 'Địa chỉ cụ thể',
+                                        'name' => 'address',
+                                        'value' => $property->address,
+                                    ])
+                                    <input type="hidden" name="lat" value="{{ $property->lat }}">
+                                    <input type="hidden" name="lng" value="{{ $property->lng }}">
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
                                     <label for="price">Giá</label>
                                     <input type="text" class="form-control" name="price" id="price"
-                                        value="{{ $activity->price }}">
+                                        value="{{ $property->price }}">
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
                                     <label for="sale_price">Giảm giá</label>
                                     <input type="text" class="form-control" name="sale_price" id="sale_price"
-                                        value="{{ $activity->sale_price }}">
+                                        value="{{ $property->sale_price }}">
                                 </div>
 
-                                <div class="col-md-6 form-group mb-3">
-                                    <label for="date">Ngày diễn ra</label>
-                                    <input type="date" class="form-control" name="date" id="date"
-                                        value="{{ $activity->date }}">
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="area" class="form-label">Diện tích</label>
+                                    <input type="text" class="form-control" name="area" id="area"
+                                        value="{{ $property->area }}">
                                 </div>
 
-                                <div class="col-md-6 form-group mb-3">
-                                    <label for="time">Thời gian diễn ra</label>
-                                    <input type="time" class="form-control" name="time" id="time"
-                                        value="{{ $activity->time }}">
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="bedroom" class="form-label">Số phòng ngủ</label>
+                                    <input type="text" class="form-control" name="bedroom" id="bedroom"
+                                        value="{{ $property->bedroom }}">
                                 </div>
 
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="bathroom" class="form-label">Số phòng tắm</label>
+                                    <input type="text" class="form-control" name="bathroom" id="bathroom"
+                                        value="{{ $property->bathroom }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="adults" class="form-label">Số người lớn</label>
+                                    <input type="text" class="form-control" name="adults" id="adults"
+                                        value="{{ $property->adults }}">
+                                </div>
+
+                                <div class="col-md-4 form-group mb-3">
+                                    <label for="children" class="form-label">Số trẻ em</label>
+                                    <input type="text" class="form-control" name="children" id="children"
+                                        value="{{ $property->children }}">
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <label for="amenities" class="form-label">Tiện ích</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkAllAmenities">
+                                        <label class="form-check-label" for="checkAllAmenities">
+                                            Chọn tất cả tiện ích
+                                        </label>
+                                    </div>
+
+                                    <div class="row">
+                                        @foreach ($amenities as $groupName => $collection)
+                                            <div class="col-md-3 mb-3">
+                                                <div class="card">
+                                                    <div class="card-header pb-0">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input group-check-all"
+                                                                type="checkbox"
+                                                                id="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}"
+                                                                data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}">
+                                                            <label class="form-check-label"
+                                                                for="groupCheckAll{{ \Illuminate\Support\Str::slug($groupName) }}">
+                                                                {{ $groupName }}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body">
+                                                        @if ($collection->isNotEmpty())
+                                                            @foreach ($collection as $amenity)
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input amenity-check"
+                                                                        type="checkbox"
+                                                                        id="amenityCheck{{ $amenity->id }}"
+                                                                        data-group-id="{{ \Illuminate\Support\Str::slug($groupName) }}"
+                                                                        name="amenities[]" value="{{ $amenity->id }}">
+                                                                    <label class="form-check-label"
+                                                                        for="amenityCheck{{ $amenity->id }}">
+                                                                        {{ $amenity->name }}
+                                                                    </label>
+                                                                </div>
+                                                            @endforeach
+                                                        @else
+                                                            <p>Không có dữ liệu.</p>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="desc" class="form-label">
                                         Mô tả
                                     </label>
 
-                                    <textarea class="ck-editor" name="desc" id="desc">{{ $activity->desc }}</textarea>
+                                    <textarea class="ck-editor" name="desc" id="desc">{{ $property->desc }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +200,7 @@
 
                             <div class="card-body">
                                 @php
-                                    $gallery = old('gallery') ?? (json_decode($activity->gallery) ?? []);
+                                    $gallery = old('gallery') ?? (json_decode($property->gallery) ?? []);
                                 @endphp
                                 <div class="col-lg-12">
                                     @if (!isset($gallery) || count($gallery) == 0)
@@ -192,28 +261,7 @@
                                     <select class="form-select" name="status" id="status">
                                         @foreach ($status as $key => $value)
                                             <option value="{{ $key }}"
-                                                {{ $activity->status == $key ? 'selected' : '' }}>
-                                                {{ $value }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card mt-3">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    Danh mục
-                                </h3>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <select class="form-select select2" name="category_id" id="category_id">
-                                        @foreach ($categories as $key => $value)
-                                            <option value="{{ $key }}"
-                                                {{ $activity->category_id == $key ? 'selected' : '' }}>
+                                                {{ $property->status == $key ? 'selected' : '' }}>
                                                 {{ $value }}
                                             </option>
                                         @endforeach
@@ -233,10 +281,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <span class="image img-cover image-target"><img class="w-100"
-                                                src="{{ old('image', $activity->image ?? '') ? old('image', $activity->image ?? '') : asset('admin/images/not-found.jpg') }}"
+                                                src="{{ old('image', $property->image ?? '') ? old('image', $property->image ?? '') : asset('admin/images/not-found.jpg') }}"
                                                 alt=""></span>
                                         <input type="hidden" name="image"
-                                            value="{{ old('image', $activity->image ?? '') }}">
+                                            value="{{ old('image', $property->image ?? '') }}">
                                     </div>
                                 </div>
                             </div>
@@ -250,10 +298,10 @@
                             </div>
 
                             <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <a href="{{ route('admin.activity.index') }}" class="btn btn-secondary w-100">
+                                <a href="{{ route('admin.property.index') }}" class="btn btn-secondary w-100">
                                     Quay lại
                                 </a>
-
+                                {{-- {{ $property->amenities->pluck('name', 'id') }} --}}
                                 <button type="submit" class="btn btn-primary w-100">
                                     Lưu thay đổi
                                 </button>
@@ -264,6 +312,8 @@
             </form>
         </div>
     </div>
+    @include('admin.components.modal-pick-address')
+    @include('admin.components.google-map-script')
 @endsection
 
 @push('scripts')
@@ -274,5 +324,32 @@
             theme: 'bootstrap-5',
             width: "100%",
         });
+
+        let amenities = {{ json_encode($property->amenities->pluck('id')) }};
+
+        document.querySelectorAll('.amenity-check').forEach(input => {
+            if (amenities.includes(parseInt(input.value))) {
+                input.checked = true;
+            }
+        });
+
+        document.getElementById('checkAllAmenities').addEventListener('change', function() {
+            const isChecked = this.checked;
+            document.querySelectorAll('.form-check-input').forEach(input => {
+                input.checked = isChecked;
+            });
+        });
+
+        document.querySelectorAll('.group-check-all').forEach(groupCheckbox => {
+            groupCheckbox.addEventListener('change', function() {
+                const groupId = this.getAttribute('data-group-id');
+                const isChecked = this.checked;
+                document.querySelectorAll(`.amenity-check[data-group-id="${groupId}"]`).forEach(input => {
+                    input.checked = isChecked;
+                });
+            });
+        });
+
+        //xử lý checked
     </script>
 @endpush
