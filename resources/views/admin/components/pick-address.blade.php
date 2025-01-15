@@ -10,6 +10,7 @@
 </div>
 <div class="input-group mb-2">
     <input type="text" class="form-control" name="address"
+        value="{{ $value || '' }}"
         readonly data-parsley-errors-container="#erroraddress" />
     <button type="button" id="openModalPickAddress" class="btn text-danger fw-normal"
         data-input="input[name={{ $name }}]" data-lat="input[name=lat]" data-lng="input[name=lng]"

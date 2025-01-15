@@ -13,6 +13,7 @@
         var lng;
         var infoWindow;
 
+console.log(lat,lng)
         function changeAddress(newValue) {
             address = newValue;
             $(document).trigger("mychangeAddressChanged");
@@ -139,7 +140,7 @@
             var options = {
                 bounds: vietnamBounds,
                 componentRestrictions: {
-                   //cho phép toàn thế giới
+                    country: ['vn']
                 }
             };
 

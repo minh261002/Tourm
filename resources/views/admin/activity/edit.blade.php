@@ -80,13 +80,15 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="address" class="form-label">
-                                        Địa chỉ cụ thể
-                                    </label>
-
-                                    <input type="text" class="form-control" name="address" id="address"
-                                        value="{{ $activity->address }}">
+                                    @include('admin.components.pick-address', [
+                                        'label' => 'Địa chỉ cụ thể',
+                                        'name' => 'address',
+                                        'value' => $activity->address,
+                                    ])
+                                    <input type="hidden" name="lat" value="{{ $activity->lat }}">
+                                    <input type="hidden" name="lng" value="{{ $activity->lng }}">
                                 </div>
+
 
                                 <div class="col-md-6 form-group mb-3">
                                     <label for="price">Giá</label>
@@ -264,6 +266,8 @@
             </form>
         </div>
     </div>
+    @include('admin.components.modal-pick-address')
+    @include('admin.components.google-map-script', ['lat' => $activity->lat, 'lng' => $activity->lng])
 @endsection
 
 @push('scripts')
