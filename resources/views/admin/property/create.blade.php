@@ -78,6 +78,7 @@
                                         @include('admin.components.pick-address', [
                                             'label' => 'Địa chỉ cụ thể',
                                             'name' => 'address',
+                                            'value' => old('address'),
                                         ])
                                         <input type="hidden" name="lat" value="{{ old('lat') }}">
                                         <input type="hidden" name="lng" value="{{ old('lng') }}">
