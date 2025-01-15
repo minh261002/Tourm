@@ -22,7 +22,8 @@ return new class extends Migration {
             $table->integer('price');
             $table->integer('sale_price')->nullable();
             $table->string('address');
-            $table->text('tags')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->decimal('area', 10, 2);
             $table->integer('bedroom');
             $table->integer('bathroom');

@@ -7,7 +7,7 @@ use App\Admin\Repositories\Property\PropertyRepositoryInterface;
 
 class PropertyDataTable extends BaseDataTable
 {
-    protected $nameTable = 'activityTable';
+    protected $nameTable = 'propertyTable';
     protected $repository;
 
     public function __construct(
@@ -32,11 +32,11 @@ class PropertyDataTable extends BaseDataTable
     public function setColumnSearch(): void
     {
 
-        $this->columnAllSearch = [1, 2, 3, 4, 5];
-        $this->columnSearchDate = [5];
+        $this->columnAllSearch = [1, 2, 3, 4];
+        $this->columnSearchDate = [4];
         $this->columnSearchSelect = [
             [
-                'column' => 4,
+                'column' => 3,
                 'data' => [
                     'active' => 'Đang hoạt động',
                     'inactive' => 'Ngưng hoạt động',
@@ -47,7 +47,7 @@ class PropertyDataTable extends BaseDataTable
     }
     protected function setCustomColumns(): void
     {
-        $this->customColumns = config('datatable_columns.activities', []);
+        $this->customColumns = config('datatable_columns.properties', []);
     }
 
     protected function setCustomEditColumns(): void

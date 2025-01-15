@@ -64,8 +64,8 @@
                                         Thuộc điểm đến
                                     </label>
 
-                                    <select class="form-select select2" name="destination_ids[]" id="destination_ids"
-                                        multiple>
+                                    <select class="form-select select2" name="destination_id" id="destination_id">
+                                        <option value="">Chọn điểm đến</option>
                                         @foreach ($destinations as $key => $value)
                                             <option value="{{ $key }}">
                                                 {{ $value }}
@@ -75,12 +75,12 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="address" class="form-label">
-                                        Địa chỉ cụ thể
-                                    </label>
-
-                                    <input type="text" class="form-control" name="address" id="address"
-                                        value="{{ old('address') }}">
+                                        @include('admin.components.pick-address', [
+                                            'label' => 'Địa chỉ cụ thể',
+                                            'name' => 'address',
+                                        ])
+                                        <input type="hidden" name="lat" value="{{ old('lat') }}">
+                                        <input type="hidden" name="lng" value="{{ old('lng') }}">
                                 </div>
 
                                 <div class="col-md-6 form-group mb-3">
@@ -93,18 +93,6 @@
                                     <label for="sale_price">Giảm giá</label>
                                     <input type="text" class="form-control" name="sale_price" id="sale_price"
                                         value="{{ old('sale_price') }}">
-                                </div>
-
-                                <div class="col-md-6 form-group mb-3">
-                                    <label for="date">Ngày diễn ra</label>
-                                    <input type="date" class="form-control" name="date" id="date"
-                                        value="{{ old('date') }}">
-                                </div>
-
-                                <div class="col-md-6 form-group mb-3">
-                                    <label for="time">Thời gian diễn ra</label>
-                                    <input type="time" class="form-control" name="time" id="time"
-                                        value="{{ old('time') }}">
                                 </div>
 
                                 <div class="form-group">
@@ -183,7 +171,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <select class="form-select" name="status" id="status">
-                                        @foreach ($status as $key => $value)
+                                        @foreach (is_array($status) ? $status : [] as $key => $value)
                                             <option value="{{ $key }}">
                                                 {{ $value }}
                                             </option>
@@ -231,6 +219,8 @@
             </form>
         </div>
     </div>
+    @include('admin.components.modal-pick-address')
+    @include('admin.components.google-map-script')
 @endsection
 
 @push('scripts')
