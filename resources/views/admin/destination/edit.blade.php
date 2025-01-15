@@ -117,9 +117,7 @@
 
                         <div class="card mt-3">
                             <div class="card-header">
-                                <h3 class="card-title">
-                                    Ảnh
-                                </h3>
+                                <h2 class="card-title mb-0">Ảnh (274 x 372)</h2>
                             </div>
 
                             <div class="card-body">
