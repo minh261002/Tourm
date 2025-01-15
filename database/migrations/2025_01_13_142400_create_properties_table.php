@@ -26,8 +26,8 @@ return new class extends Migration {
             $table->decimal('area', 10, 2);
             $table->integer('bedroom');
             $table->integer('bathroom');
-            $table->integer('adults');
-            $table->integer('children');
+            $table->integer('adults')->default(0);
+            $table->integer('children')->default(0);
             $table->timestamps();
         });
     }

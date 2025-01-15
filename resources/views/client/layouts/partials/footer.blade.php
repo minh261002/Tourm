@@ -6,7 +6,7 @@
                     <div class="row gy-4 align-items-center">
                         <div class="col-lg-5">
                             <h2 class="newsletter-title text-white text-capitalize mb-0">
-                                Đăng ký nhận bản tin của chúng tôi
+                                Đăng ký nhận bản tin
                             </h2>
                         </div>
                         <div class="col-lg-7">
