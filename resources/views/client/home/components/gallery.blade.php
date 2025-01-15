@@ -2,7 +2,7 @@
     <div class="container th-container">
         <div class="title-area text-center">
             <span class="sub-title">Make Your Tour More Pleasure</span>
-            <h2 class="sec-title">Recent Gallery</h2>
+            <h2 class="sec-title">Bộ sưu tập của chúng tôi</h2>
         </div>
         <div class="row gy-10 gx-10 justify-content-center align-items-center">
             <div class="col-md-6 col-lg-2">

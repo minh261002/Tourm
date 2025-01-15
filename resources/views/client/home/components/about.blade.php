@@ -18,33 +18,35 @@
                 <div class="ps-xl-4 ms-xl-2">
                     <div class="title-area mb-20 pe-xl-5 me-xl-5">
                         <span class="sub-title style1 ">Let’s Go Together</span>
-                        <h2 class="sec-title mb-20 pe-xl-5 me-xl-5 heading">Plan Your Trip With us</h2>
+                        <h2 class="sec-title mb-20 pe-xl-5 me-xl-5 heading">
+                            Lên kế hoạch cho chuyến đi của bạn với chúng tôi
+                        </h2>
 
-                        <p class="sec-text mb-30">There are many variations of passages of available but the
-                            majority
-                            have
-                            suffered alteration in some form, by injected hum randomised words which don't look even
-                            slightly.
+                        <p class="sec-text mb-30">
+                            Chúng tôi cung cấp các dịch vụ lưu trú, ẩm thực, vận chuyển và hướng dẫn viên chuyên nghiệp
+                            để giúp bạn có một chuyến đi tuyệt vời nhất.
                         </p>
                     </div>
                     <div class="about-item-wrap">
                         <div class="about-item">
                             <div class="about-item_img"><img src="assets/img/icon/map3.svg" alt=""></div>
                             <div class="about-item_centent">
-                                <h5 class="box-title">Exclusive Trip</h5>
-                                <p class="about-item_text">There are many variations of passages of available but
-                                    the
-                                    majority.</p>
+                                <h5 class="box-title">
+                                    Độc quyền
+                                </h5>
+                                <p class="about-item_text">
+                                    Bạn sẽ không bao giờ phải lo lắng bất kì điều gì khi chọn chúng tôi.
+                                </p>
                             </div>
                         </div>
                         <div class="about-item">
                             <div class="about-item_img"><img src="assets/img/icon/guide.svg" alt="">
                             </div>
                             <div class="about-item_centent">
-                                <h5 class="box-title">Professional Guide</h5>
-                                <p class="about-item_text">There are many variations of passages of available but
-                                    the
-                                    majority.</p>
+                                <h5 class="box-title">Chuyên nghiệp</h5>
+                                <p class="about-item_text">
+                                    Dịch vụ của chúng tôi được cung cấp bởi các chuyên gia hàng đầu trong ngành .
+                                </p>
                             </div>
                         </div>
                     </div>

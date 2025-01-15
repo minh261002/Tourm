@@ -7,7 +7,9 @@
                     <div class="counter-shape"><span></span></div>
                     <div class="media-body">
                         <h3 class="box-number"><span class="counter-number">12</span></h3>
-                        <h6 class="counter-title">Years Experience</h6>
+                        <h6 class="counter-title">
+                            Năm kinh nghiệm
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -17,7 +19,9 @@
                     <div class="counter-shape"><span></span></div>
                     <div class="media-body">
                         <h3 class="box-number"><span class="counter-number">97</span>%</h3>
-                        <h6 class="counter-title">Retention Rate</h6>
+                        <h6 class="counter-title">
+                            Tỷ lệ giữ chân khách hàng
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -27,7 +31,9 @@
                     <div class="counter-shape"><span></span></div>
                     <div class="media-body">
                         <h3 class="box-number"><span class="counter-number">8</span>k</h3>
-                        <h6 class="counter-title">Tour Completed</h6>
+                        <h6 class="counter-title">
+                            Dịch vụ hoàn thành
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -37,7 +43,9 @@
                     <div class="counter-shape"><span></span></div>
                     <div class="media-body">
                         <h3 class="box-number"><span class="counter-number">19</span>k</h3>
-                        <h6 class="counter-title">Happy Travellers</h6>
+                        <h6 class="counter-title">
+                            Khách hàng hài lòng
+                        </h6>
                     </div>
                 </div>
             </div>

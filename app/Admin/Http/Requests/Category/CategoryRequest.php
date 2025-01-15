@@ -13,6 +13,7 @@ class CategoryRequest extends BaseRequest
             'description' => 'nullable',
             'image' => 'nullable',
             'status' => 'required',
+            'is_home' => 'required',
         ];
     }
 
@@ -24,6 +25,7 @@ class CategoryRequest extends BaseRequest
             'description' => 'nullable',
             'image' => 'nullable',
             'status' => 'required',
+            'is_home' => 'required',
         ];
     }
 

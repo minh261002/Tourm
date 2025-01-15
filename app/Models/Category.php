@@ -13,6 +13,10 @@ class Category extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'is_home' => 'boolean'
+    ];
+
     public function activities()
     {
         return $this->belongsToMany(Activity::class, 'category_activity', 'category_id', 'activity_id');
