@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Admin\DataTables\Activity;
+namespace App\Admin\DataTables\Property;
 
 use App\Admin\DataTables\BaseDataTable;
-use App\Admin\Repositories\Activity\ActivityRepositoryInterface;
+use App\Admin\Repositories\Property\PropertyRepositoryInterface;
 
-class ActivityDataTable extends BaseDataTable
+class PropertyDataTable extends BaseDataTable
 {
     protected $nameTable = 'activityTable';
     protected $repository;
 
     public function __construct(
-        ActivityRepositoryInterface $repository
+        PropertyRepositoryInterface $repository
     ) {
         $this->repository = $repository;
         parent::__construct();
@@ -19,9 +19,9 @@ class ActivityDataTable extends BaseDataTable
     public function setView(): void
     {
         $this->view = [
-            'action' => 'admin.activity.datatable.action',
-            'status' => 'admin.activity.datatable.status',
-            'image' => 'admin.activity.datatable.image',
+            'action' => 'admin.property.datatable.action',
+            'status' => 'admin.property.datatable.status',
+            'image' => 'admin.property.datatable.image',
         ];
     }
     public function query()

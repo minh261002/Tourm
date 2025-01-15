@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Admin\Http\Requests\Activity;
+namespace App\Admin\Http\Requests\Property;
 
 use App\Admin\Http\Requests\BaseRequest;
 
-class ActivityRequest extends BaseRequest
+class PropertyRequest extends BaseRequest
 {
     protected function methodPost()
     {
@@ -27,7 +27,7 @@ class ActivityRequest extends BaseRequest
     protected function methodPut()
     {
         return [
-            'id' => 'required|exists:activities,id',
+            'id' => 'required|exists:properties,id',
             'name' => 'required',
             'destination_ids' => 'required',
             'address' => 'required',
