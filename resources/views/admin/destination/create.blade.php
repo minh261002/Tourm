@@ -113,7 +113,7 @@
 
                         <div class="card mt-3">
                             <div class="card-header d-flex align-items-center justify-content-between">
-                                <h2 class="card-title mb-0">Ảnh đại diện</h2>
+                                <h2 class="card-title mb-0">Ảnh (274 x 372)</h2>
                             </div>
                             <div class="card-body">
                                 <div class="col-lg-12">

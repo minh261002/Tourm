@@ -55,10 +55,22 @@
 
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-12 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="title" class="form-label">Tiêu đề</label>
                                         <input type="text" class="form-control" id="title" name="title"
                                             value="{{ $item->title }}">
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="sub_title" class="form-label">Tiêu đề phụ</label>
+                                        <input type="text" class="form-control" id="sub_title" name="sub_title"
+                                            value="{{ $item->sub_title }}">
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="button_text" class="form-label">Văn bản nút</label>
+                                        <input type="text" class="form-control" id="button_text" name="button_text"
+                                            value="{{ $item->button_text }}">
                                     </div>
 
                                     <div class="col-md-6 mb-3">

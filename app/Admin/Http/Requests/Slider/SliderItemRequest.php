@@ -11,6 +11,8 @@ class SliderItemRequest extends BaseRequest
         return [
             'slider_id' => 'required|exists:sliders,id',
             'title' => 'required',
+            'sub_title' => 'nullable',
+            'button_text' => 'nullable',
             'link' => 'nullable',
             'position' => 'required',
             'image' => 'required',
@@ -24,6 +26,8 @@ class SliderItemRequest extends BaseRequest
             'id' => 'required|exists:slider_items,id',
             'slider_id' => 'required|exists:sliders,id',
             'title' => 'required',
+            'sub_title' => 'nullable',
+            'button_text' => 'nullable',
             'link' => 'nullable',
             'position' => 'required',
             'image' => 'required',

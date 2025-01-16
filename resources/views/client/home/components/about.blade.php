@@ -19,7 +19,7 @@
                     <div class="title-area mb-20 pe-xl-5 me-xl-5">
                         <span class="sub-title style1 ">Let’s Go Together</span>
                         <h2 class="sec-title mb-20 pe-xl-5 me-xl-5 heading">
-                            Lên kế hoạch cho chuyến đi của bạn với chúng tôi
+                            Lên kế hoạch cho chuyến đi của bạn
                         </h2>
 
                         <p class="sec-text mb-30">

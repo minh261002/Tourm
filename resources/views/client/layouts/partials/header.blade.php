@@ -44,7 +44,7 @@
                                 <li>
                                     <a class="active" href="{{ route('home') }}">Trang chủ</a>
                                 </li>
-                                <li><a href="about.html">Giới thiệu</a></li>
+                                <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                                 <li>
                                     <a href="#">Điểm đến</a>
                                 </li>
@@ -67,10 +67,17 @@
                     </div>
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
-                            <a href="contact.html" class="th-btn style3 th-icon">
-                                <i class="far fa-user"></i>
-                                Tài khoản
-                            </a>
+                            @if (Auth::guard('web')->check())
+                                <a href="" class="th-btn style3 th-icon">
+                                    <i class="far fa-user"></i>
+                                    {{ Auth::guard('web')->user()->name }}
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="th-btn style3 th-icon">
+                                    <i class="far fa-user"></i>
+                                    Tài khoản
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
