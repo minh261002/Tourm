@@ -20,13 +20,13 @@
                                     <div class="destination-content">
                                         <div class="media-left">
                                             <h4 class="box-title">
-                                                <a href="destination-details.html">
+                                                <a href="{{ route('destination.show', $destination->slug) }}">
                                                     {{ $destination->name }}
                                                 </a>
                                             </h4>
                                         </div>
                                         <div class="">
-                                            <a href="destination-details.html" class="th-btn style2 th-icon">Xem
+                                            <a href="{{ route('destination') }}" class="th-btn style2 th-icon">Xem
                                                 thêm</a>
                                         </div>
                                     </div>

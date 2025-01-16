@@ -46,10 +46,7 @@
                                 </li>
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                                 <li>
-                                    <a href="#">Điểm đến</a>
-                                </li>
-                                <li>
-                                    <a href="#">Tour Du lịch</a>
+                                    <a href="{{ route('destination') }}">Điểm đến</a>
                                 </li>
                                 <li>
                                     <a href="#">Hoạt động giải trí</a>

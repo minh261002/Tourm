@@ -6,5 +6,5 @@ use App\Admin\Repositories\BaseRepositoryInterface;
 
 interface DestinationRepositoryInterface extends BaseRepositoryInterface
 {
-    //
+    public function search($keyword);
 }
