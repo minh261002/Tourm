@@ -3,7 +3,8 @@
     <div class="recent-post-wrap">
         <div class="recent-post">
             <div class="media-img">
-                <a href="blog-details.html"><img src="assets/img/blog/recent-post-1-1.jpg" alt="Blog Image"></a>
+                <a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-1.jpg') }}"
+                        alt="Blog Image"></a>
             </div>
             <div class="media-body">
                 <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Exploring
@@ -15,7 +16,8 @@
         </div>
         <div class="recent-post">
             <div class="media-img">
-                <a href="blog-details.html"><img src="assets/img/blog/recent-post-1-2.jpg" alt="Blog Image"></a>
+                <a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-2.jpg') }}"
+                        alt="Blog Image"></a>
             </div>
             <div class="media-body">
                 <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Harmony
@@ -28,7 +30,8 @@
         </div>
         <div class="recent-post">
             <div class="media-img">
-                <a href="blog-details.html"><img src="assets/img/blog/recent-post-1-3.jpg" alt="Blog Image"></a>
+                <a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-3.jpg') }}"
+                        alt="Blog Image"></a>
             </div>
             <div class="media-body">
                 <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Exploring

@@ -1,11 +1,11 @@
-<div class="widget widget_offer  " data-bg-src="assets/img/bg/widget_bg_1.jpg">
+<div class="widget widget_offer  " data-bg-src="{{ asset('assets/img/bg/widget_bg_1.jpg') }}">
     <div class="offer-banner">
         <div class="offer">
             <h6 class="box-title">
-                Bạn cần hỗ trợ? Liên hệ với chúng tôi ngay
+                Bạn cần hỗ trợ?
             </h6>
             <div class="banner-logo">
-                <img src="assets/img/logo2.svg" alt="Tourm">
+                <img src="{{ asset('assets/img/logo2.svg') }}" alt="Tourm">
             </div>
             <div class="offer">
                 <h6 class="offer-title">

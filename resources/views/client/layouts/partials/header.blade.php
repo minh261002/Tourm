@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="logo-bg" data-mask-src="assets/img/logo_bg_mask.png"></div>
+            <div class="logo-bg" data-mask-src="{{ asset('assets/img/logo_bg_mask.png') }}"></div>
         </div>
     </div>
 </header>

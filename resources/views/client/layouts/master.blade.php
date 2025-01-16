@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <base href="{{ env('APP_URL') }}">
     <title>
         @yield('title')
     </title>

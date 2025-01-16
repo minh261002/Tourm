@@ -8,7 +8,7 @@
                     <div class="page-single">
                         <div class="service-img"><img src="
                             {{ $destination->image }}"
-                                alt="">
+                                alt="" width="100%">
                         </div>
                         <div class="page-content d-block">
                             <div class="page-meta mt-50 mb-45">
@@ -191,13 +191,13 @@
             </div>
         </div>
         <div class="shape-mockup shape1 d-none d-xxl-block" data-bottom="35%" data-right="12%">
-            <img src="assets/img/shape/shape_1.png" alt="shape">
+            <img src="{{ asset('assets/img/shape/shape_1.png') }}" alt="shape">
         </div>
         <div class="shape-mockup shape2 d-none d-xl-block" data-bottom="31%" data-right="8%">
-            <img src="assets/img/shape/shape_2.png" alt="shape">
+            <img src="{{ asset('assets/img/shape/shape_2.png') }}" alt="shape">
         </div>
         <div class="shape-mockup shape3 d-none d-xxl-block" data-bottom="33%" data-right="5%">
-            <img src="assets/img/shape/shape_3.png" alt="shape">
+            <img src="{{ asset('assets/img/shape/shape_3.png') }}" alt="shape">
         </div>
     </section>
 @endsection
