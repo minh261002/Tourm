@@ -2,6 +2,21 @@
 
 return [
     [
+        'active' => ['admin.transaction.*'],
+        'show' => ['admin.transaction.*'],
+        'title' => 'Quản lý giao dịch',
+        'icon' => 'ti ti-credit-card-pay fs-2',
+        'permission' => ['viewTransaction', 'editTransaction'],
+        'children' => [
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.transaction.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewTransaction'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.amenity.*'],
         'show' => ['admin.amenity.*'],
         'title' => 'Quản lý tiện ích',
