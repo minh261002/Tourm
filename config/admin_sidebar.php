@@ -170,6 +170,27 @@ return [
         ]
     ],
     [
+        'active' => ['admin.user.*'],
+        'show' => ['admin.user.*'],
+        'title' => 'Quản lý khách hàng',
+        'icon' => 'ti ti-user fs-2',
+        'permission' => ['viewUser', 'createUser', 'editUser', 'deleteUser'],
+        'children' => [
+            [
+                'title' => 'Thêm mới',
+                'route' => 'admin.user.create',
+                'icon' => 'ti ti-plus fs-3 me-2',
+                'permission' => 'createUser'
+            ],
+            [
+                'title' => 'Danh sách',
+                'route' => 'admin.user.index',
+                'icon' => 'ti ti-list fs-3 me-2',
+                'permission' => 'viewUser'
+            ]
+        ]
+    ],
+    [
         'active' => ['admin.admin.*'],
         'show' => ['admin.admin.*'],
         'title' => 'Quản trị viên',

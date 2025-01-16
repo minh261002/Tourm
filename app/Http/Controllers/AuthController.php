@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\Auth\SendEmailRequest;
+use App\Http\Requests\Auth\UpdatePasswordRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Mail\ClientResetLinkMail;
@@ -50,7 +51,7 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->guard('web')->logout();
-        return redirect()->route('home')->with('success', 'Đăng xuất thành công.');
+        return redirect()->route('login')->with('success', 'Đăng xuất thành công.');
     }
 
     public function forgotPassword()
@@ -83,5 +84,29 @@ class AuthController extends Controller
     public function resetPassword()
     {
         return view('client.auth.reset-password');
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $token = $request->token;
+        $email = $request->email;
+        $password = $request->password;
+
+        $tokenData = DB::table('password_reset_tokens')->where('email', $email)->first();
+        if (!$tokenData) {
+            return back()->with('error', 'Token không hợp lệ.');
+        }
+
+        if ($tokenData->token !== $token) {
+            return back()->with('error', 'Token không hợp lệ.');
+        }
+
+        $user = User::where('email', $email)->first();
+        $user->password = bcrypt($password);
+        $user->save();
+
+        DB::table('password_reset_tokens')->where('email', $email)->delete();
+
+        return redirect()->route('login')->with('success', 'Mật khẩu đã được cập nhật.');
     }
 }

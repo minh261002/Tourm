@@ -43,7 +43,7 @@ class PermissionController extends Controller
         return redirect()->route('admin.permission.index')->with('success', 'Thêm quyền mới thành công');
     }
 
-    public function edit(int $id)
+    public function edit($id)
     {
         $permission = $this->repository->findOrFail($id);
         $modules = $this->moduleRepository->getQueryBuilderOrderBy()->get();
@@ -56,7 +56,7 @@ class PermissionController extends Controller
         return redirect()->route('admin.permission.index')->with('success', 'Cập nhật quyền thành công');
     }
 
-    public function delete(int $id)
+    public function delete($id)
     {
         $this->repository->delete($id);
         return response()->json(['status' => 'success', 'message' => 'Xóa quyền thành công']);

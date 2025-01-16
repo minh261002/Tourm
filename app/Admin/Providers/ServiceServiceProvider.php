@@ -21,6 +21,7 @@ class ServiceServiceProvider extends ServiceProvider
         'App\Admin\Services\Activity\ActivityServiceInterface' => 'App\Admin\Services\Activity\ActivityService',
         'App\Admin\Services\Amenity\AmenityServiceInterface' => 'App\Admin\Services\Amenity\AmenityService',
         'App\Admin\Services\Property\PropertyServiceInterface' => 'App\Admin\Services\Property\PropertyService',
+        'App\Admin\Services\User\UserServiceInterface' => 'App\Admin\Services\User\UserService',
     ];
     /**
      * Register any application services.

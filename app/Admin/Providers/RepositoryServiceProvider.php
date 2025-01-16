@@ -21,6 +21,7 @@ class RepositoryServiceProvider extends ServiceProvider
         'App\Admin\Repositories\Activity\ActivityRepositoryInterface' => 'App\Admin\Repositories\Activity\ActivityRepository',
         'App\Admin\Repositories\Amenity\AmenityRepositoryInterface' => 'App\Admin\Repositories\Amenity\AmenityRepository',
         'App\Admin\Repositories\Property\PropertyRepositoryInterface' => 'App\Admin\Repositories\Property\PropertyRepository',
+        'App\Admin\Repositories\User\UserRepositoryInterface' => 'App\Admin\Repositories\User\UserRepository',
     ];
     /**
      * Register any application services.

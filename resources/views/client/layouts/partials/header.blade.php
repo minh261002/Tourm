@@ -46,13 +46,10 @@
                                 </li>
                                 <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                                 <li>
-                                    <a href="#">Điểm đến</a>
+                                    <a href="{{ route('destination') }}">Điểm đến</a>
                                 </li>
                                 <li>
-                                    <a href="#">Tour Du lịch</a>
-                                </li>
-                                <li>
-                                    <a href="#">Hoạt động giải trí</a>
+                                    <a href="{{ route('activity') }}">Hoạt động giải trí</a>
                                 </li>
                                 <li>
                                     <a href="#">Dịch vụ lưu trú</a>
@@ -82,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="logo-bg" data-mask-src="assets/img/logo_bg_mask.png"></div>
+            <div class="logo-bg" data-mask-src="{{ asset('assets/img/logo_bg_mask.png') }}"></div>
         </div>
     </div>
 </header>

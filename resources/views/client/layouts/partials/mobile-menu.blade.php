@@ -2,7 +2,7 @@
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="home-travel.html"><img src="assets/img/logo2.svg" alt="Tourm"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo2.svg') }}" alt="Tourm"></a>
         </div>
         <div class="th-mobile-menu">
             <ul>

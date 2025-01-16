@@ -1,11 +1,23 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/ajax/location', [LocationController::class, 'getLocation'])->name('ajax.location');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/gioi-thieu', [HomeController::class, 'about'])->name('about');
+Route::get('/lien-he', [HomeController::class, 'contact'])->name('contact');
+
+Route::get('/diem-den', [DestinationController::class, 'index'])->name('destination');
+Route::get('/diem-den/{slug}', [DestinationController::class, 'show'])->name('destination.show');
+
+Route::get('/hoat-dong', [ActivityController::class, 'index'])->name('activity');
+Route::get('/hoat-dong/{slug}', [ActivityController::class, 'show'])->name('activity.show');
 
 Route::middleware(['login'])->group(function () {
     Route::get('/dang-nhap', [AuthController::class, 'login'])->name('login');

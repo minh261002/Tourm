@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Quản trị viên')
+@section('title', 'Quản lý khách hàng')
 
 @push('styles')
 @endpush
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản trị viên
+                        Quản lý khách hàng
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -22,7 +22,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Quản trị viên
+                                Quản lý khách hàng
                             </li>
                         </ol>
                     </nav>
@@ -36,10 +36,10 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">
-                            Danh sách quản trị viên
+                            Danh sách khách hàng
                         </h3>
                         <div class="card-actions">
-                            <a href="{{ route('admin.admin.create') }}" class="btn btn-primary">
+                            <a href="{{ route('admin.user.create') }}" class="btn btn-primary">
                                 <i class="ti ti-plus fs-4 me-1"></i>
                                 Thêm mới
                             </a>
@@ -70,4 +70,25 @@
     @include('admin.layout.partials.scripts', [
         'id_table' => $dataTable->getTableAttribute('id'),
     ])
+
+    <script>
+        $(document).on('change', '.form-check-input', function() {
+            let status = $(this).prop('checked') == true ? 'active' : 'inactive';
+            let id = $(this).data('id');
+
+            $.ajax({
+                type: 'PATCH',
+                dataType: 'json',
+                url: '{{ route('admin.user.update.status') }}',
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'status': status,
+                    'id': id
+                },
+                success: function(data) {
+                    FuiToast.success('Cập nhật trạng thái thành công');
+                }
+            });
+        });
+    </script>
 @endpush

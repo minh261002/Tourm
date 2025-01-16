@@ -67,7 +67,7 @@
                         <div class="th-widget-contact">
                             <div class="info-box_text">
                                 <div class="icon">
-                                    <img src="assets/img/icon/phone.svg" alt="img">
+                                    <img src="{{ asset('assets/img/icon/phone.svg') }}" alt="img">
                                 </div>
                                 <div class="details">
                                     <p><a href="tel:+01234567890" class="info-box_link">+01 234 567 890</a></p>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="info-box_text">
                                 <div class="icon">
-                                    <img src="assets/img/icon/envelope.svg" alt="img">
+                                    <img src="{{ asset('assets/img/icon/envelope.svg') }}" alt="img">
                                 </div>
                                 <div class="details">
                                     <p><a href="mailto:mailinfo00@tourm.com" class="info-box_link">admin@tourm.com</a>
@@ -86,7 +86,8 @@
                                 </div>
                             </div>
                             <div class="info-box_text">
-                                <div class="icon"><img src="assets/img/icon/location-dot.svg" alt="img"></div>
+                                <div class="icon"><img src="{{ asset('assets/img/icon/location-dot.svg') }}"
+                                        alt="img"></div>
                                 <div class="details">
                                     <p>
                                         703A Dien Bien Phu Str, Ward 7, Dist 3, Ho Chi Minh City, Viet Nam

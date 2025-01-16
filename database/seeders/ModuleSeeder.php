@@ -98,6 +98,13 @@ class ModuleSeeder extends Seeder
                 'status' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Quản lý khách hàng',
+                'description' => 'Quản lý khách hàng',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
 
@@ -390,6 +397,30 @@ class ModuleSeeder extends Seeder
                 'name' => 'deleteActivity',
                 'guard_name' => 'admin',
                 'module_id' => 12,
+            ],
+            [
+                'title' => 'Xem khách hàng',
+                'name' => 'viewUser',
+                'guard_name' => 'admin',
+                'module_id' => 13,
+            ],
+            [
+                'title' => 'Tạo khách hàng',
+                'name' => 'createUser',
+                'guard_name' => 'admin',
+                'module_id' => 13,
+            ],
+            [
+                'title' => 'Sửa khách hàng',
+                'name' => 'editUser',
+                'guard_name' => 'admin',
+                'module_id' => 13,
+            ],
+            [
+                'title' => 'Xóa khách hàng',
+                'name' => 'deleteUser',
+                'guard_name' => 'admin',
+                'module_id' => 13,
             ]
         ]);
 
@@ -596,6 +627,22 @@ class ModuleSeeder extends Seeder
             ],
             [
                 'permission_id' => 48,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 49,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 50,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 51,
+                'role_id' => 1,
+            ],
+            [
+                'permission_id' => 52,
                 'role_id' => 1,
             ]
         ]);
