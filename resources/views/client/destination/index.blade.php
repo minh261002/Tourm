@@ -16,7 +16,9 @@
                                     <div class="col-xxl-4 col-xl-6">
                                         <div class="tour-box th-ani">
                                             <div class="tour-box_img global-img">
-                                                <img src="{{ $destination->image }}" alt="{{ $destination->name }}">
+                                                <a href="{{ route('destination.show', $destination->slug) }}">
+                                                    <img src="{{ $destination->image }}" alt="{{ $destination->name }}">
+                                                </a>
                                             </div>
                                             <div class="tour-content">
                                                 <h3 class="box-title"><a
@@ -53,7 +55,10 @@
                                     <div class="col-12">
                                         <div class="tour-box style-flex th-ani" style="height: 400px">
                                             <div class="tour-box_img global-img">
-                                                <img src="{{ asset($destination->image) }}" alt="{{ $destination->name }}">
+                                                <a href="{{ route('destination.show', $destination->slug) }}">
+                                                    <img src="{{ asset($destination->image) }}"
+                                                        alt="{{ $destination->name }}">
+                                                </a>
                                             </div>
                                             <div class="tour-content">
                                                 <h3 class="box-title"><a
