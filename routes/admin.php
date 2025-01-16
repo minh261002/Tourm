@@ -102,14 +102,15 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::prefix('admin')->as('admin.')->group(function () {
             Route::middleware(['permission:viewAdmin'])->group(function () {
                 Route::get('/', [AdminController::class, 'index'])->name('index');
-                Route::get('/{id}', [AdminController::class, 'edit'])->name('edit');
             });
 
             Route::middleware(['permission:createAdmin'])->group(function () {
-                Route::post('create', [AdminController::class, 'create'])->name('create');
+                Route::get('create', [AdminController::class, 'create'])->name('create');
+                Route::post('create', [AdminController::class, 'store'])->name('store');
             });
 
             Route::middleware(['permission:editAdmin'])->group(function () {
+                Route::get('edit/{id}', [AdminController::class, 'edit'])->name('edit');
                 Route::put('/update', [AdminController::class, 'update'])->name('update');
             });
 

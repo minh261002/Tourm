@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Thêm quản trị viên')
+@section('title', 'Thêm khách hàng')
 
 @push('styles')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h3 class="card-title">
-                        Quản trị viên
+                        Quản lý khách hàng
                     </h3>
 
                     <nav aria-label="breadcrumb">
@@ -22,8 +22,8 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{ route('admin.admin.index') }}">
-                                    Quản trị viên
+                                <a href="{{ route('admin.user.index') }}">
+                                    Quản lý khách hàng
                                 </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
@@ -37,7 +37,7 @@
 
         <!-- Page body -->
         <div class="page-body">
-            <form action="{{ route('admin.admin.store') }}" method="POST">
+            <form action="{{ route('admin.user.store') }}" method="POST">
                 @csrf
 
                 <div class="row">
@@ -45,7 +45,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    Thông tin quản trị viên
+                                    Thông tin khách hàng
                                 </h3>
                             </div>
 
@@ -166,13 +166,12 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-header d-flex align-items-center justify-content-between">
-                                <h2 class="card-title mb-0">Vai trò</h2>
+                                <h2 class="card-title mb-0">Trạng thái</h2>
                             </div>
                             <div class="card-body">
-                                <select name="role_id" id="role_id" class="form-control select2">
-                                    <option value="">Chọn vai trò</option>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->title }}</option>
+                                <select name="status" id="status" class="form-control select2">
+                                    @foreach ($status as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,7 +201,7 @@
                             </div>
 
                             <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <a href="{{ route('admin.admin.index') }}" class="btn btn-secondary w-100">
+                                <a href="{{ route('admin.user.index') }}" class="btn btn-secondary w-100">
                                     Quay lại
                                 </a>
 
@@ -218,9 +217,9 @@
     </div>
 
     <script>
-        var province_id = '{{ isset($admin->province_id) ? $admin->province_id : old('province_id') }}'
-        var district_id = '{{ isset($admin->district_id) ? $admin->district_id : old('district_id') }}'
-        var ward_id = '{{ isset($admin->ward_id) ? $admin->ward_id : old('ward_id') }}'
+        var province_id = '{{ isset($user->province_id) ? $user->province_id : old('province_id') }}'
+        var district_id = '{{ isset($user->district_id) ? $user->district_id : old('district_id') }}'
+        var ward_id = '{{ isset($user->ward_id) ? $user->ward_id : old('ward_id') }}'
     </script>
 @endsection
 

@@ -51,7 +51,7 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->guard('web')->logout();
-        return redirect()->route('home')->with('success', 'Đăng xuất thành công.');
+        return redirect()->route('login')->with('success', 'Đăng xuất thành công.');
     }
 
     public function forgotPassword()

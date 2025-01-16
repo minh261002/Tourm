@@ -31,7 +31,11 @@ class UserController extends Controller
     public function create()
     {
         $provinces = Province::all();
-        return view('admin.user.create', compact('provinces'));
+        $status = [
+            'active' => 'Đang hoạt động',
+            'inactive' => 'Không hoạt động',
+        ];
+        return view('admin.user.create', compact('provinces', 'status'));
     }
 
     public function store(UserRequest $request)
@@ -43,9 +47,9 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $admin = $this->repository->findOrFail($id);
+        $user = $this->repository->findOrFail($id);
         $provinces = Province::all();
-        return view('admin.user.edit', compact('admin', 'provinces'));
+        return view('admin.user.edit', compact('user', 'provinces'));
     }
 
     public function update(UserRequest $request)
