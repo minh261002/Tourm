@@ -42,20 +42,24 @@ class UserController extends Controller
     {
         $this->service->store($request);
 
-        return redirect()->route('admin.user.index')->with('success', 'Thêm thành viên thành công');
+        return redirect()->route('admin.user.index')->with('success', 'Thêm khách hàng thành công');
     }
 
     public function edit($id)
     {
         $user = $this->repository->findOrFail($id);
         $provinces = Province::all();
-        return view('admin.user.edit', compact('user', 'provinces'));
+        $status = [
+            'active' => 'Đang hoạt động',
+            'inactive' => 'Không hoạt động',
+        ];
+        return view('admin.user.edit', compact('user', 'provinces', 'status'));
     }
 
     public function update(UserRequest $request)
     {
         $this->service->update($request);
-        return redirect()->route('admin.user.index')->with('success', 'Cập nhật thành viên thành công');
+        return redirect()->route('admin.user.index')->with('success', 'Cập nhật khách hàng thành công');
     }
 
     public function updateStatus(Request $request)
@@ -68,6 +72,6 @@ class UserController extends Controller
     public function delete($id)
     {
         $this->repository->delete($id);
-        return response()->json(['status' => 'success', 'message' => 'Xóa thành viên thành công']);
+        return response()->json(['status' => 'success', 'message' => 'Xóa khách hàng thành công']);
     }
 }

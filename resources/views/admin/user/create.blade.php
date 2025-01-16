@@ -129,7 +129,8 @@
                                             @if (isset($provinces))
                                                 @foreach ($provinces as $province)
                                                     <option @if (old('province_id') == $province->code) selected @endif
-                                                        value="{{ $province->code }}">{{ $province->name }}</option>
+                                                        value="{{ $province->code }}">{{ $province->name_with_type }}
+                                                    </option>
                                                 @endforeach
                                             @endif
                                         </select>

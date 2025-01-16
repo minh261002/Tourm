@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/ajax/location', [LocationController::class, 'getLocation'])->name('ajax.location');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/gioi-thieu', [HomeController::class, 'about'])->name('about');

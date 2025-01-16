@@ -1,4 +1,4 @@
-<a href="{{ route('admin.admin.edit', $id) }}" class="btn btn-sm btn-primary">
+<a href="{{ route('admin.user.edit', $id) }}" class="btn btn-sm btn-primary">
     <i class="ti ti-pencil fs-1"></i>
 </a>
 
@@ -31,7 +31,7 @@
                                 </a>
                             </div>
                             <div class="col">
-                                <a href="{{ route('admin.admin.delete', $id) }}" class="btn btn-danger w-100 btn-delete"
+                                <a href="{{ route('admin.user.delete', $id) }}" class="btn btn-danger w-100 btn-delete"
                                     data-bs-dismiss="modal">
                                     Xóa
                                 </a>

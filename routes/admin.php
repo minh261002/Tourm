@@ -137,7 +137,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
             });
 
             Route::middleware(['permission:deleteUser'])->group(function () {
-                Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
+                Route::delete('/{id}', [UserController::class, 'delete'])->name('delete');
             });
         });
 
