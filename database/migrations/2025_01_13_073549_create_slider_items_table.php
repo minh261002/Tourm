@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('slider_id');
             $table->string('title');
+            $table->string('sub_title')->nullable();
+            $table->string('button_text')->nullable();
             $table->text('link')->nullable();
             $table->tinyInteger('position');
             $table->text('image');

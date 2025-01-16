@@ -20,14 +20,7 @@ class AuthController extends Controller
         $remember = $request->boolean('remember');
 
         if (auth()->guard('web')->attempt($credentials, $remember)) {
-            if (!auth()->guard('web')->user()->hasVerifiedEmail()) {
-                auth()->guard('web')->user()->sendEmailVerificationNotification();
-
-                auth()->guard('web')->logout();
-                return redirect()->route('verification.verify')->with('info', 'Vui lòng xác thực email để tiếp tục.');
-            }
-
-            return redirect()->route('home');
+            return redirect()->route('home')->with('success', 'Xin chào, ' . auth()->guard('web')->user()->name . '!');
         }
 
         return back()->with('error', 'Thông tin đăng nhập không chính xác.');
