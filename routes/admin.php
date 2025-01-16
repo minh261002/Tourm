@@ -14,6 +14,7 @@ use App\Admin\Http\Controllers\Post\PostController;
 use App\Admin\Http\Controllers\Property\PropertyController;
 use App\Admin\Http\Controllers\Role\RoleController;
 use App\Admin\Http\Controllers\Slider\SliderController;
+use App\Admin\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -59,14 +60,15 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::prefix('permission')->as('permission.')->group(function () {
             Route::middleware(['permission:viewPermission'])->group(function () {
                 Route::get('/', [PermissionController::class, 'index'])->name('index');
-                Route::get('/{id}', [PermissionController::class, 'edit'])->name('edit');
             });
 
             Route::middleware(['permission:createPermission'])->group(function () {
-                Route::post('create', [PermissionController::class, 'create'])->name('create');
+                Route::get('/create', [PermissionController::class, 'create'])->name('create');
+                Route::post('create', [PermissionController::class, 'store'])->name('store');
             });
 
             Route::middleware(['permission:editPermission'])->group(function () {
+                Route::get('/edit/{id}', [PermissionController::class, 'edit'])->name('edit');
                 Route::put('/update', [PermissionController::class, 'update'])->name('update');
             });
 
@@ -79,15 +81,15 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::prefix('role')->as('role.')->group(function () {
             Route::middleware(['permission:viewRole'])->group(function () {
                 Route::get('/', [RoleController::class, 'index'])->name('index');
-                Route::get('/getModules', [RoleController::class, 'getModules'])->name('getModules');
-                Route::get('/{id}', [RoleController::class, 'edit'])->name('edit');
             });
 
             Route::middleware(['permission:createRole'])->group(function () {
-                Route::post('create', [RoleController::class, 'create'])->name('create');
+                Route::get('/create', [RoleController::class, 'create'])->name('create');
+                Route::post('create', [RoleController::class, 'store'])->name('store');
             });
 
             Route::middleware(['permission:editRole'])->group(function () {
+                Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('edit');
                 Route::put('/update', [RoleController::class, 'update'])->name('update');
             });
 
@@ -113,6 +115,26 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
             Route::middleware(['permission:deleteAdmin'])->group(function () {
                 Route::delete('/{id}', [AdminController::class, 'destroy'])->name('delete');
+            });
+        });
+
+        //User
+        Route::prefix('user')->as('user.')->group(function () {
+            Route::middleware(['permission:viewUser'])->group(function () {
+                Route::get('/', [UserController::class, 'index'])->name('index');
+                Route::get('/{id}', [UserController::class, 'edit'])->name('edit');
+            });
+
+            Route::middleware(['permission:createUser'])->group(function () {
+                Route::post('create', [UserController::class, 'create'])->name('create');
+            });
+
+            Route::middleware(['permission:editUser'])->group(function () {
+                Route::put('/update', [UserController::class, 'update'])->name('update');
+            });
+
+            Route::middleware(['permission:deleteUser'])->group(function () {
+                Route::delete('/{id}', [UserController::class, 'destroy'])->name('delete');
             });
         });
 
