@@ -49,7 +49,7 @@
                                     <a href="{{ route('destination') }}">Điểm đến</a>
                                 </li>
                                 <li>
-                                    <a href="#">Hoạt động giải trí</a>
+                                    <a href="{{ route('activity') }}">Hoạt động giải trí</a>
                                 </li>
                                 <li>
                                     <a href="#">Dịch vụ lưu trú</a>
