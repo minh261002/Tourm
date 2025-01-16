@@ -13,7 +13,8 @@
         var lng;
         var infoWindow;
 
-console.log(lat,lng)
+        console.log(lat, lng)
+
         function changeAddress(newValue) {
             address = newValue;
             $(document).trigger("mychangeAddressChanged");
@@ -68,11 +69,6 @@ console.log(lat,lng)
             $(ipLat).trigger('change');
             $(ipLng).trigger('change');
 
-            // if (address) {
-            //     $(ipAddress).removeAttr('readonly', 'readonly');
-            // } else {
-            //     $(ipAddress).attr('readonly', 'readonly');
-            // }
         });
 
         function initMap() {
@@ -95,39 +91,6 @@ console.log(lat,lng)
             marker = new google.maps.Marker({
                 map: map,
                 draggable: true
-            });
-
-
-            map.addListener('click', function(event) {
-                const clickedLocation = event.latLng;
-
-                marker.setPosition(clickedLocation);
-
-                const lat = clickedLocation.lat();
-                const lng = clickedLocation.lng();
-
-                $(ipLat).val(lat).trigger('change');
-                $(ipLng).val(lng).trigger('change');
-
-                const request = {
-                    location: clickedLocation,
-                    radius: '20',
-                    language: 'vi'
-                };
-                const service = new google.maps.places.PlacesService(map);
-
-                service.nearbySearch(request, function(results, status) {
-                    if (status === google.maps.places.PlacesServiceStatus.OK && results[0]) {
-                        const placeDetailsRequest = {
-                            placeId: results[0].place_id
-                        };
-                        service.getDetails(placeDetailsRequest, function(place, status) {
-                            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                                changeAddress(place.formatted_address);
-                            }
-                        });
-                    }
-                });
             });
 
             // Tạo một biến để lưu trữ giới hạn địa lý cho Autocomplete
