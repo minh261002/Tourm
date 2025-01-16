@@ -122,15 +122,17 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::prefix('user')->as('user.')->group(function () {
             Route::middleware(['permission:viewUser'])->group(function () {
                 Route::get('/', [UserController::class, 'index'])->name('index');
-                Route::get('/{id}', [UserController::class, 'edit'])->name('edit');
             });
 
             Route::middleware(['permission:createUser'])->group(function () {
-                Route::post('create', [UserController::class, 'create'])->name('create');
+                Route::get('create', [UserController::class, 'create'])->name('create');
+                Route::post('create', [UserController::class, 'store'])->name('store');
             });
 
             Route::middleware(['permission:editUser'])->group(function () {
+                Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
                 Route::put('/update', [UserController::class, 'update'])->name('update');
+                Route::patch('/update-status', [UserController::class, 'updateStatus'])->name('update.status');
             });
 
             Route::middleware(['permission:deleteUser'])->group(function () {

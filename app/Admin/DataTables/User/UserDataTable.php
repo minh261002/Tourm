@@ -33,7 +33,17 @@ class UserDataTable extends BaseDataTable
 
     public function setColumnSearch(): void
     {
-        $this->columnAllSearch = [1, 2, 3];
+        $this->columnAllSearch = [1, 2, 3, 4];
+        $this->columnSearchDate = [4];
+        $this->columnSearchSelect = [
+            [
+                'column' => 3,
+                'data' => [
+                    'active' => 'Đang hoạt động',
+                    'inactive' => 'Ngưng hoạt động',
+                ]
+            ]
+        ];
     }
 
     protected function setCustomColumns(): void
@@ -46,11 +56,8 @@ class UserDataTable extends BaseDataTable
         $this->customEditColumns = [
             'action' => $this->view['action'],
             'image' => $this->view['image'],
-            'role' => function ($admin) {
-                $roles = $admin->roles->pluck('name')->toArray();
-                return '<code>' . implode(', ', $roles) . '</code>';
-            },
             'status' => $this->view['status'],
+            'created_at' => '{{format_datetime($created_at)}}',
         ];
     }
 
