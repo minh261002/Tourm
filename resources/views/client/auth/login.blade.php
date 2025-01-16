@@ -35,7 +35,7 @@
                                 </div>
 
                                 <div id="forgot_url">
-                                    <a href="my-account.html">Quên mật khẩu?</a>
+                                    <a href="{{ route('password.forgot') }}">Quên mật khẩu?</a>
                                 </div>
                             </div>
                         </div>
