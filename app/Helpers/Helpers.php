@@ -2,6 +2,18 @@
 
 use Illuminate\Support\Str;
 
+if (!function_exists('limit_text')) {
+    function limit_text($text, $limit = 100, $end = '...')
+    {
+        if (strlen($text) > $limit) {
+            $text = substr($text, 0, $limit);
+            $text = substr($text, 0, strrpos($text, ' '));
+            $text = $text . $end;
+        }
+        return $text;
+    }
+}
+
 if (!function_exists('format_datetime')) {
     function format_datetime($datetime)
     {
@@ -24,7 +36,7 @@ if (!function_exists('format_time')) {
 }
 
 if (!function_exists('format_price')) {
-    function formatPrice($price)
+    function format_price($price)
     {
         return number_format($price, 0, ',', '.') . ' ₫';
     }

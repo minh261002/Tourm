@@ -11,4 +11,14 @@ class ActivityRepository extends BaseRepository implements ActivityRepositoryInt
     {
         return Activity::class;
     }
+
+    public function getMinPrice()
+    {
+        return $this->model->min('price');
+    }
+
+    public function getMaxPrice()
+    {
+        return $this->model->max('price');
+    }
 }

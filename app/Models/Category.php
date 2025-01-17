@@ -19,6 +19,6 @@ class Category extends Model
 
     public function activities()
     {
-        return $this->belongsToMany(Activity::class, 'category_activity', 'category_id', 'activity_id');
+        return $this->hasMany(Activity::class, 'category_id');
     }
 }

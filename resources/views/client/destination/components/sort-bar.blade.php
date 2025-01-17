@@ -20,7 +20,7 @@
     <div class="col-md-4">
         <div class="search-form-area">
             <form class="search-form" method="GET">
-                <input type="text" placeholder="Tìm kiếm" name="query" value="{{ request('query') }}">
+                <input type="text" placeholder="Tìm kiếm địa điểm" name="query" value="{{ request('query') }}">
                 <button type="submit"><i class="fa-light fa-magnifying-glass"></i></button>
             </form>
         </div>

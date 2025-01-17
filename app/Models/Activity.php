@@ -23,8 +23,8 @@ class Activity extends Model
         return $this->belongsTo(Destination::class, 'destination_id');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class, 'category_activity', 'activity_id', 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

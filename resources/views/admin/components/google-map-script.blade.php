@@ -13,8 +13,6 @@
         var lng;
         var infoWindow;
 
-        console.log(lat, lng)
-
         function changeAddress(newValue) {
             address = newValue;
             $(document).trigger("mychangeAddressChanged");
