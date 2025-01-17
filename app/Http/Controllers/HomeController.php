@@ -52,4 +52,9 @@ class HomeController extends Controller
     {
         return view('client.pages.about');
     }
+
+    public function contact()
+    {
+        return view('client.pages.contact');
+    }
 }

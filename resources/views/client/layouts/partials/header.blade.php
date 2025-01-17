@@ -42,20 +42,26 @@
                         <nav class="main-menu d-none d-xl-inline-block">
                             <ul>
                                 <li>
-                                    <a class="active" href="{{ route('home') }}">Trang chủ</a>
+                                    <a class="{{ setSidebarActive(['home']) }}" href="{{ route('home') }}">Trang
+                                        chủ</a>
                                 </li>
-                                <li><a href="{{ route('about') }}">Giới thiệu</a></li>
+                                <li><a class="{{ setSidebarActive(['about']) }}" href="{{ route('about') }}">Giới
+                                        thiệu</a></li>
                                 <li>
-                                    <a href="{{ route('destination') }}">Điểm đến</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('activity') }}">Hoạt động giải trí</a>
-                                </li>
-                                <li>
-                                    <a href="#">Dịch vụ lưu trú</a>
+                                    <a class="{{ setSidebarActive(['destination', 'destination.*']) }}"
+                                        href="{{ route('destination') }}">Điểm
+                                        đến</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Liên Hệ</a>
+                                    <a class="{{ setSidebarActive(['activity', 'activity.*']) }}"
+                                        href="{{ route('activity') }}">Hoạt động
+                                        giải trí</a>
+                                </li>
+                                <li>
+                                    <a {{ setSidebarActive(['home']) }} href="#">Dịch vụ lưu trú</a>
+                                </li>
+                                <li>
+                                    <a class="{{ setSidebarActive(['contact']) }}" {{ route('contact') }}">Liên Hệ</a>
                                 </li>
                             </ul>
                         </nav>

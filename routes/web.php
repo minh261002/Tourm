@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/ajax/location', [LocationController::class, 'getLocation'])->name('ajax.location');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/gioi-thieu', [HomeController::class, 'about'])->name('about');
 Route::get('/lien-he', [HomeController::class, 'contact'])->name('contact');
 
