@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('booking_id')->constrained()->onDelete('cascade');
             $table->foreignId('activity_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('property_id')->nullable()->constrained()->onDelete('cascade');
             $table->integer('price');
             $table->timestamps();
         });

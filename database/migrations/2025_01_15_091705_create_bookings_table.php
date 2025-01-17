@@ -14,11 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->string('booking_code')->unique();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('property_id')->constrained()->onDelete('cascade');
             $table->date('check_in');
             $table->date('check_out');
             $table->integer('guests');
-            $table->integer('price');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->text('message')->nullable();
             $table->text('cancellation_reason')->nullable();

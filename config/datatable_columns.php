@@ -1,6 +1,50 @@
 <?php
 
 return [
+    'transactions' => [
+        'user_id' => [
+            'title' => 'Khách hàng',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'booking_id' => [
+            'title' => 'Đơn đặt chỗ',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'amount' => [
+            'title' => 'Số tiền thanh toán',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'payment_method' => [
+            'title' => 'Phương thức thanh toán',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'payment_status' => [
+            'title' => 'Trạng thái thanh toán',
+            'orderable' => true,
+            'exportable' => true,
+            'printable' => true,
+            'addClass' => 'text-center align-middle',
+        ],
+        'action' => [
+            'title' => 'Thao tác',
+            'orderable' => false,
+            'exportable' => false,
+            'printable' => false,
+            'addClass' => 'text-center align-middle',
+        ],
+    ],
     'users' => [
         'image' => [
             'title' => 'Ảnh',

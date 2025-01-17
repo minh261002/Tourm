@@ -14,6 +14,7 @@ use App\Admin\Http\Controllers\Post\PostController;
 use App\Admin\Http\Controllers\Property\PropertyController;
 use App\Admin\Http\Controllers\Role\RoleController;
 use App\Admin\Http\Controllers\Slider\SliderController;
+use App\Admin\Http\Controllers\Transaction\TransactionController;
 use App\Admin\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -342,13 +343,12 @@ Route::prefix('admin')->as('admin.')->group(function () {
         //Transaction
         Route::prefix('transaction')->as('transaction.')->group(function () {
             Route::middleware(['permission:viewProperty'])->group(function () {
-                Route::get('/', [PropertyController::class, 'index'])->name('index');
+                Route::get('/', [TransactionController::class, 'index'])->name('index');
             });
 
             Route::middleware(['permission:editProperty'])->group(function () {
-                Route::get('/edit/{id}', [PropertyController::class, 'edit'])->name('edit');
-                Route::put('/update', [PropertyController::class, 'update'])->name('update');
-                Route::patch('/update-status', [PropertyController::class, 'updateStatus'])->name('update.status');
+                Route::get('/edit/{id}', [TransactionController::class, 'edit'])->name('edit');
+                Route::patch('/update-status', [TransactionController::class, 'updateStatus'])->name('update.status');
             });
         });
     });
